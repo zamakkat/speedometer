@@ -13,7 +13,7 @@ def hello_world():
 
 @app.route('/run/<project_name>')
 def run(project_name):
-    if not project_name
+    if not project_name:
         return 'Invalid project name!', 403
     shutil.copytree("tests/sample", "tests/" + project_name)
     os.system("multimech-run tests/" + project_name)
