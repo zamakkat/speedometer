@@ -47,6 +47,7 @@ def run(project_name):
     link = os.popen('dokku url ' + project_name).read()
     f = open('tests/link.txt', 'w')
     f.write(link)
+    f.close()
 
     # Run the tests
     os.system("cd tests/ && multimech-run " + project_name)
