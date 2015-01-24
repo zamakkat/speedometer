@@ -193,7 +193,6 @@
 						var name1 = $('#name1').val();
 						var url1 = $('#url1').val();
 
-
 						$.niftyNoty({
 							type: 'purple',
 							icon : 'fa fa-check',
@@ -207,6 +206,7 @@
 							url: 'http://128.199.66.127:8080',
 							data: { name: name1, url: url1 },
 							dataType: 'json'
+
 						});
 					}
 				}

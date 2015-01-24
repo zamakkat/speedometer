@@ -24,6 +24,9 @@
 	<!--BootstrapJS [ RECOMMENDED ]-->
 	<script src="js/bootstrap.min.js"></script>
 
+	<!-- firebase -->
+	<script src='js/firebase.js'></script>
+
 <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background-color: #212633;border-radius: 2px;color: white;text-align: right;white-space: nowrap;padding: 7px 14px;z-index: 10000;}.jqsfield { color: white;font-size: 14;text-align: right;}</style></head>
  
 <body class="nifty-ready  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
@@ -250,6 +253,18 @@
 						<div class="col-lg-12">
 							<!--Endpoint #1 Normal Performance Graph-->
 							<!--===================================================-->
+							<script>
+								var myDataRef = new Firebase('https://vivid-torch-3095.firebaseio.com/');
+								myDataRef.on('child_added', function(snapshot) {
+								});
+								function displayCommitMsg(loadtime, ) {
+									$('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+									$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+								};
+
+							</script>
+
+
 							<div id="demo-panel-network" class="panel">
 								<div class="row">
 									<div class="col-lg-8">
@@ -258,12 +273,10 @@
 												<h3 class="panel-title">Line Chart</h3>
 											</div>
 											<div class="panel-body">
-
 												<!--Flot Line Chart placeholder-->
 												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 												<div id="demo-flot-line" style="height: 212px; padding: 0px; position: relative;"><canvas class="flot-base" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 21px; text-align: center;">1.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 70px; text-align: center;">2.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 119px; text-align: center;">3.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 168px; text-align: center;">4.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 217px; text-align: center;">5.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 266px; text-align: center;">6.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 316px; text-align: center;">7.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 365px; text-align: center;">8.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 414px; text-align: center;">9.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 460px; text-align: center;">10.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 509px; text-align: center;">11.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 558px; text-align: center;">12.0</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 186px; left: 17px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 156px; left: 0px; text-align: right;">1000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 125px; left: 0px; text-align: right;">2000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 95px; left: 0px; text-align: right;">3000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 64px; left: 0px; text-align: right;">4000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 34px; left: 0px; text-align: right;">5000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 3px; left: 0px; text-align: right;">6000</div></div></div><canvas class="flot-overlay" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><div class="legend"><div style="position: absolute; width: 63px; height: 28px; top: 10px; left: 43px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:10px;left:43px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(23,123,187);overflow:hidden"></div></div></td><td class="legendLabel">Pageviews</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(23,123,187);overflow:hidden"></div></div></td><td class="legendLabel">Visitors</td></tr></tbody></table></div></div>
 												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
 											</div>
 										</div>
 									</div>
@@ -273,12 +286,10 @@
 												<h3 class="panel-title">Pie Chart</h3>
 											</div>
 											<div class="panel-body">
-
 												<!--Flot Donut Chart placeholder -->
 												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 												<div id="demo-flot-donut" style="height: 212px; padding: 0px; position: relative;"><canvas class="flot-base" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><canvas class="flot-overlay" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><span class="pieLabel" id="pieLabel0" style="position: absolute; top: 135px; left: 347.5px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#177bbb;">Comedy<br>66%</div></span><span class="pieLabel" id="pieLabel1" style="position: absolute; top: 92px; left: 181.5px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#a6c600;">Action<br>16%</div></span><span class="pieLabel" id="pieLabel2" style="position: absolute; top: 21px; left: 204px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#8669CC;">Adventure<br>12%</div></span><span class="pieLabel" id="pieLabel3" style="position: absolute; top: 0px; left: 256px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#f84f9a;">Drama<br>6%</div></span></div>
 												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
 											</div>
 										</div>
 									</div>
