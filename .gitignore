@@ -1,4 +1,5 @@
 .DS_Store
 venv
 data
-test/results/
+tests/sample/results/
+tests/**/
