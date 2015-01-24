@@ -172,25 +172,27 @@
 		bootbox.dialog({
 			title: "Add Github Repository",
 			message:'<div class="row"> ' + '<div class="col-md-12"> ' +
-					'<form class="form-horizontal"> ' + '<div class="form-group"> ' +
+					'<form id="ajax-1" class="form-horizontal"> ' + '<div class="form-group"> ' +
 					'<label class="col-md-4 control-label" for="name">Repository Name</label> ' +
 					'<div class="col-md-4"> ' +
-					'<input id="name" name="name" type="text" placeholder="Repository Url" class="form-control input-md" style="width:200%;"> ' +
-					'<span class="help-block"><small>Here goes your Github repository url</small></span> </div> ' +
-					'</div> ' + '<div class="form-group"> ' +
-					'<label class="col-md-4 control-label" for="awesomeness">Choice of Test</label> ' +
-					'<div class="col-md-8"> <div class="form-block"> ' +
-					'<label class="form-radio form-icon demo-modal-radio active"><input type="radio" autocomplete="off" name="awesomeness" value="Performance Graph" checked> Performance Graph Test</label>' +
-					'<label class="form-radio form-icon demo-modal-radio"><input type="radio" autocomplete="off" name="awesomeness" value="Super awesome"> Unit Performance Test </label> </div>' +
-					'<label class="form-radio form-icon demo-modal-radio"><input type="radio" autocomplete="off" name="awesomeness" value="Super awesome"> Full Stress Test </label> </div>' +
-					'</div> </div>' + '</form> </div> </div><script></script>',
+					'<input id="name1" name="name" type="text" placeholder="node-js-sample" class="form-control input-md" style="width:200%;"> ' +
+					'<span class="help-block"><small>Enter Github Repository Name</small></span> </div> ' +
+					'</div>' +
+					'<label class="col-md-4 control-label" for="name">Repository Url</label> ' +
+					'<div class="col-md-4"> ' +
+					'<input id="url1" name="url" type="text" placeholder="https://github.com/heroku/node-js-sample.git" class="form-control input-md" style="width:200%;"> ' +
+					'<span class="help-block"><small>Enter Github repository url</small></span> </div> ' +
+					'</div>'+
+					'</div><script></script>',
 			buttons: {
 				success: {
 					label: "Add Repository",
 					className: "btn-purple",
 					callback: function() {
-						var name = $('#name').val();
-						var answer = $("input[name='awesomeness']:checked").val();
+
+						var name1 = $('#name1').val();
+						var url1 = $('#url1').val();
+
 
 						$.niftyNoty({
 							type: 'purple',
@@ -200,12 +202,11 @@
 							timer : 4000
 						});
 
-						$.niftyNoty({
-							type: 'purple',
-							icon : 'fa fa-check',
-							message : "Build Successful! " + "<br>Click to read build log",
-							container : 'floating', 
-							timer : 7000
+						$.ajax({
+							type: "POST",
+							url: 'http://128.199.66.127:8080',
+							data: { name: name1, url: url1 },
+							dataType: 'json'
 						});
 					}
 				}
@@ -220,14 +221,20 @@
 					'<form class="form-horizontal"> ' + '<div class="form-group"> ' +
 					'<label class="col-md-4 control-label" for="name">Repository Name</label> ' +
 					'<div class="col-md-4"> ' +
-					'<input id="name" name="name" type="text" placeholder="Repository Url" class="form-control input-md" style="width:200%;"> ' +
-					'<span class="help-block"><small>Here goes your Github repository url</small></span> </div> ' +
+					'<input id="name" name="name" type="text" placeholder="Repository Name" class="form-control input-md"> ' +
+					'<span class="help-block"><small>Enter your repository project name</small></span> </div> ' +
+					'</div> ' +
+					'<div class="col-md-4"> ' +
+					'<input id="name" name="name" type="text" placeholder="Repository Name" class="form-control input-md"> ' +
+					'<span class="help-block"><small>Enter your repository project name</small></span> </div> ' +
+					'</div> ' +
 					'</div> ' + '<div class="form-group"> ' +
 					'<label class="col-md-4 control-label" for="awesomeness">Choice of Test</label> ' +
 					'<div class="col-md-8"> <div class="form-block"> ' +
 					'<label class="form-radio form-icon demo-modal-radio active"><input type="radio" autocomplete="off" name="awesomeness" value="Performance Graph" checked> Performance Graph Test</label>' +
 					'<label class="form-radio form-icon demo-modal-radio"><input type="radio" autocomplete="off" name="awesomeness" value="Super awesome"> Unit Performance Test </label> </div>' +
 					'<label class="form-radio form-icon demo-modal-radio"><input type="radio" autocomplete="off" name="awesomeness" value="Super awesome"> Full Stress Test </label> </div>' +
+					'<img src="../img/loading.gif" id="loading-indicator" style="display:none" />'+
 					'</div> </div>' + '</form> </div> </div><script></script>',
 			buttons: {
 				success: {
@@ -252,11 +259,18 @@
 							container : 'floating', 
 							timer : 7000
 						});
+
+						$(document).ajaxSend(function(event, request, settings) {
+							$('#loading-indicator').show();
+						});
+
+						$(document).ajaxComplete(function(event, request, settings) {
+							$('#loading-indicator').hide();
+						});
 					}
 				}
 			}
 		});
-
 		$(".demo-modal-radio").niftyCheck();
 	});
 
