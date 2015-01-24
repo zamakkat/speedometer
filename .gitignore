@@ -1,2 +1,10 @@
 .DS_Store
 venv
+data
+tests/**/
+tests/link.txt
+tests/boostio.db
+!tests/sample/
+!tests/sample/test_scripts/
+*.pyc
+ 
