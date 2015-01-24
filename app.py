@@ -93,7 +93,7 @@ def data(project_name):
 
     return json.dumps(
         {'commit': { 'hash': chash, 'author_name': author_name, 'author_email': author_email, 'date': date, 'message': message }, 
-        'stats': { 'avg': avg_time, 'min': min_time, 'max': max_time } } )
+        'stats': { 'avg': avg_time[0][0], 'min': min_time[0][0], 'max': max_time[0][0] } } )
 
 
 
