@@ -22,8 +22,7 @@ def clone_new_repo():
         return 'failed to add repository remote, please try again!', 403
     elif os.system('cd ~/external/%s && git push boostiodokku master' %(project_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
-    elif run(project_name):
-        return 'done!', 200
+    return run(project_name), 200
 
 @app.route('/pull/<project_name>')
 def fetch_repo(project_name):
@@ -33,8 +32,7 @@ def fetch_repo(project_name):
         return 'repo cannot be pulled. Please check repo setting', 403
     elif os.system('cd ~/external/%s && git push boostiodokku master' %(project_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
-    elif run(project_name):
-        return 'repo updated', 200
+    return run(project_name), 200
 
 @app.route('/run/<project_name>')
 def run(project_name):
