@@ -37,10 +37,18 @@ def fetch_repo(project_name):
 
 @app.route('/run/<project_name>')
 def run(project_name):
+    # Sanity check
     if not project_name:
         return 'Invalid project name!', 403
+    # Create the test folder if is a new project
     if not os.path.isdir("tests/" + project_name):
         shutil.copytree("tests/sample", "tests/" + project_name)
+    # Read app url and write to link.txt
+    link = os.popen('dokku url ' + project_name).read()
+    f = open('tests/link.txt', 'w')
+    f.write(link)
+
+    # Run the tests
     os.system("cd tests/ && multimech-run " + project_name)
     return 'test done!'
 
