@@ -15,11 +15,11 @@ def hello_world():
 def clone_new_repo():
     repo_name = request.form['name']
     repo_url = request.form['url']
-    if os.system('git clone ' + repo_url + ' ' + '~/external/'+repo_name) != 0:
+    if os.system('git clone %s ~/external/%s' %(repo_url,repo_name)) != 0:
         return 'repo existed or cannot create folder, try using /pull/<repo_name> instead', 403
     elif os.system('cd ~/external/%s && git remote add boostiodokku dokku@localhost:%s' %(repo_name, repo_name)):
         return 'failed to add repository remote, please try again!', 403
-    elif os.system('git push boostiodokku master') != 0:
+    elif os.system('cd ~/external/%s && git push boostiodokku master' %(repo_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
     return 'done!', 200
 
@@ -27,9 +27,9 @@ def clone_new_repo():
 def fetch_repo(repo_name):
     if os.system('cd ~/external/%s' %(repo_name)) != 0:
         return 'repo not existed or cannot be accessed, try using /clone instead', 403
-    elif os.system('git pull origin master') != 0:
+    elif os.system('cd ~/external/%s && git pull origin master' %s(repo_name)) != 0:
         return 'repo cannot be pulled. Please check repo setting', 403
-    elif os.system('git push boostiodokku master') != 0:
+    elif os.system('cd ~/external/%s && git push boostiodokku master' %s(repo_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
     return 'repo updated', 200
 
