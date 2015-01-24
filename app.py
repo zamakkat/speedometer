@@ -17,7 +17,7 @@ def run(project_name):
         return 'Invalid project name!', 403
     shutil.copytree("tests/sample", "tests/" + project_name)
     os.system("multimech-run tests/" + project_name)
-    return 'done!'
+    return 'done!', 200
 
 @app.route('/clone', methods=['POST', 'GET'])
 def clone_new_repo():
