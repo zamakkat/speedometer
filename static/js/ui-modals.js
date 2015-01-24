@@ -193,21 +193,29 @@
 						var name1 = $('#name1').val();
 						var url1 = $('#url1').val();
 
+						function notify(result) {
+							console.log(result);
+							$.niftyNoty({
+								type: 'purple',
+								icon : 'fa fa-check',
+								message : "<strong>Build finished!</strong>",
+								container : 'floating',
+								timer : 4000
+							});
+						}
 
-						$.niftyNoty({
-							type: 'purple',
-							icon : 'fa fa-check',
-							message : "Github Repository Added! " + "<br><strong>Handling Build Now</strong>",
-							container : 'floating',
-							timer : 4000
-						});
+						clone(notify);
 
-						$.ajax({
-							type: "POST",
-							url: 'http://128.199.66.127:8080/clone',
-							data: { name: name1, url: url1 },
-							dataType: 'json'
-						});
+						function clone(callback) {
+							$.ajax({
+								type: "POST",
+								url: 'http://128.199.66.127:8080/clone',
+								data: { name: name1, url: url1 },
+								dataType: 'json',
+								success: callback
+							});
+						}
+						
 					}
 				}
 			}
