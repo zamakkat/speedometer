@@ -1,5 +1,7 @@
 .DS_Store
 venv
 data
-tests/sample/results/
 tests/**/
+!tests/sample/
+!tests/sample/test_scripts/
+*.pyc
