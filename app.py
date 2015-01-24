@@ -1,11 +1,11 @@
 from flask import Flask
 from flask import request
-from pymongo import MongoClient
+import sqlite3
 import os
 import shutil
 
 app = Flask(__name__)
-client = MongoClient('localhost', 27017)
+conn = sqlite3.connect('example.db')
 
 @app.route('/')
 def hello_world():
