@@ -1,11 +1,13 @@
 from flask import Flask
 from flask import request
+from firebase import firebase
 import sqlite3
 import os
 import shutil
 import json
 
 app = Flask(__name__)
+firebase = firebase.FirebaseApplication('https://your_storage.firebaseio.com', authentication=None)
 conn = sqlite3.connect('example.db')
 
 @app.route('/')
@@ -22,7 +24,9 @@ def clone_new_repo():
         return 'failed to add repository remote, please try again!', 403
     elif os.system('cd ~/external/%s && git push boostiodokku master' %(project_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
-    return run(project_name), 200
+    test_result = run(project_name)
+    firebase.post('/commit_details', test_result)
+    return "ok", 200
 
 @app.route('/pull/<project_name>')
 def fetch_repo(project_name):
@@ -32,7 +36,9 @@ def fetch_repo(project_name):
         return 'repo cannot be pulled. Please check repo setting', 403
     elif os.system('cd ~/external/%s && git push boostiodokku master' %(project_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
-    return run(project_name), 200
+    test_result = run(project_name)
+    firebase.post('/commit_details', test_result)
+    return "ok", 200
 
 @app.route('/run/<project_name>')
 def run(project_name):
