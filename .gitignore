@@ -5,3 +5,4 @@ tests/**/
 !tests/sample/
 !tests/sample/test_scripts/
 *.pyc
+ 
