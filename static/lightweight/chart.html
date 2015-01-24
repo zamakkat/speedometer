@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://wbpreview.com/previews/WB003517L/charts.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Speedometer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css">
+        <link rel="stylesheet" type="text/css" href="css/aquaadmin.css">
+    </head>
+    <body>
+        <!-- firebase & jquery --->
+        <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://wbpreview.com/previews/WB003517L/charts.html#">Speed-o-Meter Dashboard</a>
+                    <div class="btn-group pull-right">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="http://wbpreview.com/previews/WB003517L/charts.html#">
+                            <i class="icon-user"></i> Username
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-user"></i> Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-off"></i> Sign Out</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group pull-right">
+                        <a class="badge badge-warning" data-toggle="dropdown">77</a>
+                        <ul class="dropdown-menu popup">
+                            <li>
+                                <a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-comment icon-blue"></i>New content
+                                    <span class="popup-content">
+                                        Title: New article<br>
+                                        Author: Leonardo
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-comment icon-blue"></i>New content
+                                    <span class="popup-content">
+                                        Title: Nice admin theme<br>
+                                        Author: Lonardo
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-user icon-blue"></i>New user
+                                    <span class="popup-content">
+                                        Username: Lonardo
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-user icon-green"></i>New user
+                                    <span class="popup-content">
+                                        Username: Tom
+                                    </span></a>
+                            </li>
+                            <li class="divider"></li> 
+                            <li>
+                                <a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-picture icon-orange"></i>New picture
+                                    <span class="popup-content">
+                                        Username: Tom
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-home icon-aqua"></i> Home</a></li>
+                            <li class="dropdown">
+                                <a href="http://wbpreview.com/previews/WB003517L/charts.html#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="icon-random icon-aqua"></i> Shortcuts
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-edit"></i> Create article</a></li>
+                                    <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-plus"></i> Add user</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-comment"></i> Comments</a></li>
+                                    <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-user"></i> users</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#contact"><i class="icon-envelope icon-aqua"></i> Contact</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12 top-bar">
+                    <ul class="breadcrumb">
+                        <li><a href="http://wbpreview.com/previews/WB003517L/index.html">Home</a></li><li class="breadcrumb-separator"><i class="icon-chevron-right icon-blue"></i></li> <li><span>Charts</span></li></ul><!-- breadcrumbs -->
+                    <div class="actions-bar">
+                        <div class="btn-group pull-right">
+                            <a class="btn btn-inverse"><i class="icon-cog icon-white"></i> Settings</a>
+                            <a class="btn btn-inverse"><i class="icon-edit icon-white"></i> Actions</a>
+                            <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-plus-sign"></i> Do something</a></li>
+                                <li><a href="http://wbpreview.com/previews/WB003517L/charts.html#"><i class="icon-cog"></i> Something else</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="span2 sp2 all-left">
+                    <div class="sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li><a href="http://wbpreview.com/previews/WB003517L/index.html"><i class="icon-home icon-aqua"></i> Home</a></li>
+                            <li class="active"><a href="./chart_files/chart.html"><i class="icon-signal icon-aqua"></i> Charts</a></li>
+                            <li><a href="http://wbpreview.com/previews/WB003517L/form.html"><i class="icon-tasks icon-aqua"></i> Forms</a></li>
+                            <li><a href="http://wbpreview.com/previews/WB003517L/table.html"><i class="icon-list-alt icon-aqua"></i> Table</a></li>
+                            <li><a href="http://wbpreview.com/previews/WB003517L/errorpage.html"><i class="icon-exclamation-sign icon-aqua"></i> Error</a></li>
+                            <li><a href="http://wbpreview.com/previews/WB003517L/gallery.html"><i class="icon-picture icon-aqua"></i> Gallery</a></li>
+                            <li class="nav-header">Another menu</li>
+                            <li><a href="http://wbpreview.com/previews/WB003517L/loginform.html"><i class="icon-user icon-aqua"></i> Login form</a></li>
+                        </ul>
+                    </div>
+                </div><!--/span-->
+                <div class="span10 content">
+                    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="/netbeans/bootstrap/js/excanvas.min.js"></script><![endif]-->
+                    <div id="content">
+                        <!--<div class="span6 panel"> -->
+                            <!--<div class="panel-header">-->
+                                <!--<i class="icon-signal icon-blue"></i>-->
+                                <!--<h2>Line chart</h2>-->
+                            <!--</div>-->
+                            <!--<div class="panel-content">-->
+                                <!--<div id="graph1" style="height: 300px; padding: 0px; position: relative;"><canvas class="base" width="547" height="300"></canvas><canvas class="overlay" width="547" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="tickLabels" style="font-size:smaller"><div class="xAxis x1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:center;left:-8px;top:282px;width:68px">0</div><div class="tickLabel" style="position:absolute;text-align:center;left:69px;top:282px;width:68px">2</div><div class="tickLabel" style="position:absolute;text-align:center;left:145px;top:282px;width:68px">4</div><div class="tickLabel" style="position:absolute;text-align:center;left:222px;top:282px;width:68px">6</div><div class="tickLabel" style="position:absolute;text-align:center;left:298px;top:282px;width:68px">8</div><div class="tickLabel" style="position:absolute;text-align:center;left:375px;top:282px;width:68px">10</div><div class="tickLabel" style="position:absolute;text-align:center;left:452px;top:282px;width:68px">12</div></div><div class="yAxis y1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:right;top:243px;right:528px;width:19px">-1.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:187px;right:528px;width:19px">-0.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:131px;right:528px;width:19px">0.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:74px;right:528px;width:19px">0.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:18px;right:528px;width:19px">1.0</div></div></div><div class="legend"><div style="position: absolute; width: 51px; height: 40px; top: 9px; right: 9px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:9px;right:9px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(237,194,64);overflow:hidden"></div></div></td><td class="legendLabel">sin(x)</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(175,216,248);overflow:hidden"></div></div></td><td class="legendLabel">cos(x)</td></tr></tbody></table></div></div>-->
+                            <!--</div>-->
+                        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
+                        <!--<div class="span5 panel">-->
+                            <!--<div class="panel-header">-->
+                                <!--<i class="icon-signal icon-blue"></i>-->
+                                <!--<h2>Pie chart</h2>-->
+                            <!--</div>-->
+                            <!--<div class="panel-content">-->
+                                <!--<div id="graph2" style="height: 300px; padding: 0px; position: relative;"><canvas class="base" width="444" height="300"></canvas><canvas class="overlay" width="444" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="legend"><div style="position: absolute; width: 59px; height: 120px; top: 5px; right: 5px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:5px;right:5px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(237,194,64);overflow:hidden"></div></div></td><td class="legendLabel">Series1</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(175,216,248);overflow:hidden"></div></div></td><td class="legendLabel">Series2</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(203,75,75);overflow:hidden"></div></div></td><td class="legendLabel">Series3</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(77,167,77);overflow:hidden"></div></div></td><td class="legendLabel">Series4</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(148,64,237);overflow:hidden"></div></div></td><td class="legendLabel">Series5</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(189,155,51);overflow:hidden"></div></div></td><td class="legendLabel">Series6</td></tr></tbody></table></div></div>-->
+                            <!--</div>-->
+                        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
+                        <div class="span11 panel">
+                            <div class="panel-header">
+                                <i class="icon-signal icon-blue"></i>
+                                <h2>Real time update chart</h2>
+                            </div>
+
+                            <div id="container" style="width:100%; height:400px; margin: 0 auto;"></div>
+
+                            <!--<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto">-->
+                            <!--</div>-->
+
+
+                        </div>
+
+                        <script type="text/javascript">
+                            var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");
+                            fb.on("value", function(data) {
+                                var model = data.val();
+                                $('#container').highcharts({
+                                    chart: { type: 'column' },
+                                    title: { text: 'Sales' },
+                                    xAxis: {
+                                        categories: model.Categories
+                                    },
+                                    yAxis: { title: { text: 'Quantity' } },
+                                    series: model.Series.map(function(element) {
+                                        return {
+                                            name: element.Name,
+                                            data: element.Data
+                                        }
+                                    })
+                                });
+                            });
+                        </script>
+
+
+                        <!--/span-->
+                        <!--<script type="text/javascript">-->
+                            <!--$(function () {-->
+                                <!--$(document).ready(function () {-->
+                                    <!--Highcharts.setOptions({-->
+                                        <!--global: {-->
+                                            <!--useUTC: false-->
+                                        <!--}-->
+                                    <!--});-->
+
+                                    <!--$('#container').highcharts({-->
+                                        <!--chart: {-->
+                                            <!--type: 'spline',-->
+                                            <!--animation: Highcharts.svg, // don't animate in old IE-->
+                                            <!--marginRight: 10,-->
+                                            <!--events: {-->
+                                                <!--load: function () {-->
+
+                                                    <!--// set up the updating of the chart each second-->
+                                                    <!--var series = this.series[0];-->
+                                                    <!--setInterval(function () {-->
+                                                        <!--var x = (new Date()).getTime(), // current time-->
+                                                                <!--y = Math.random();-->
+                                                        <!--series.addPoint([x, y], true, true);-->
+                                                    <!--}, 1000);-->
+                                                <!--}-->
+                                            <!--}-->
+                                        <!--},-->
+                                        <!--title: {-->
+                                            <!--text: 'Live performance data'-->
+                                        <!--},-->
+                                        <!--xAxis: {-->
+                                            <!--type: 'datetime',-->
+                                            <!--tickPixelInterval: 150-->
+                                        <!--},-->
+                                        <!--yAxis: {-->
+                                            <!--title: {-->
+                                                <!--text: 'Value'-->
+                                            <!--},-->
+                                            <!--plotLines: [{-->
+                                                <!--value: 0,-->
+                                                <!--width: 1,-->
+                                                <!--color: '#808080'-->
+                                            <!--}]-->
+                                        <!--},-->
+                                        <!--tooltip: {-->
+                                            <!--formatter: function () {-->
+                                                <!--return '<b>' + this.series.name + '</b><br/>' +-->
+                                                        <!--Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +-->
+                                                        <!--Highcharts.numberFormat(this.y, 2);-->
+                                            <!--}-->
+                                        <!--},-->
+                                        <!--legend: {-->
+                                            <!--enabled: false-->
+                                        <!--},-->
+                                        <!--exporting: {-->
+                                            <!--enabled: false-->
+                                        <!--},-->
+                                        <!--series: [{-->
+                                            <!--name: 'Random data',-->
+                                            <!--data: (function () {-->
+                                                <!--// generate an array of random data-->
+                                                <!--var data = [],-->
+                                                        <!--time = (new Date()).getTime(),-->
+                                                        <!--i;-->
+
+                                                <!--for (i = -19; i <= 0; i += 1) {-->
+                                                    <!--data.push({-->
+                                                        <!--x: time + i * 1000,-->
+                                                        <!--y: Math.random()-->
+                                                    <!--});-->
+                                                <!--}-->
+                                                <!--return data;-->
+                                            <!--}())-->
+                                        <!--}]-->
+                                    <!--});-->
+                                <!--});-->
+                            <!--});-->
+                        <!--</script>-->
+                    </div><!-- content -->
+                </div>
+            </div><!--/row-->
+            <hr>
+            <footer>
+                <p>© Hack & Roll 2015</p>
+            </footer>
+        </div><!--/.fluid-container-->
+
+        <!-- bootstrap minified -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <!-- dropping in charting libraries -->
+        <script src="http://code.highcharts.com/highcharts.js"></script>
+        <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
+
+    </body></html>
