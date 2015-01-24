@@ -9,21 +9,33 @@
 	<!--STYLESHEET-->
 	<!--=================================================-->
 
+
+	<!--jQuery [ REQUIRED ]-->
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<!--BootstrapJS [ RECOMMENDED ]-->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Plugins [ OPTIONAL ]-->
+	<script src="js/plugins.min.js"></script>
+	<!--Demo script [ DEMONSTRATION ]-->
+	<script src="js/nifty-demo.min.js"></script>
+	<!--Specify page [ SAMPLE ]-->
+	<script src="js/dashboard.js"></script>
+	<!-- Modals -->
+	<script src="js/ui-modals.js"></script>
+	<script src="js/firebase.js"></script>
+	<script src="js/highcharts.js"></script>
+
+
+
 	<!--Roboto Font [ OPTIONAL ]-->
 	<link href="css" rel="stylesheet" type="text/css">
-
-
 	<!--Bootstrap Stylesheet [ REQUIRED ]-->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-
 	<!--Nifty Stylesheet [ REQUIRED ]-->
 	<link href="css/nifty.min.css" rel="stylesheet">
-
 	<!--Page Load Progress Bar [ OPTIONAL ]-->
 	<link href="css/pace.min.css" rel="stylesheet">
 	<script src="js/pace.min.js"></script>
-		
 
 <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background-color: #212633;border-radius: 2px;color: white;text-align: right;white-space: nowrap;padding: 7px 14px;z-index: 10000;}.jqsfield { color: white;font-size: 14;text-align: right;}</style></head>
  
@@ -328,107 +340,109 @@
 				<!--Page content-->
 				<div id="page-content">
 
+
+
+
 					<div class="row">
 						<div class="col-lg-12">
-
-							<!--Network Line Chart-->
+							<!--Endpoint #1 Normal Performance Graph-->
 							<!--===================================================-->
 							<div id="demo-panel-network" class="panel">
-								<div class="panel-heading">
-									<div class="panel-control">
-										<button id="demo-panel-network-refresh" data-toggle="panel-overlay" data-target="#demo-panel-network" class="btn"><i class="fa fa-rotate-right"></i></button>
-										<div class="btn-group">
-											<button class="dropdown-toggle btn" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-gear"></i></button>
-											<ul class="dropdown-menu dropdown-menu-right">
-												<li><a href="http://www.themeon.net/nifty/wb/v2.1/index.html#">Action</a></li>
-												<li><a href="http://www.themeon.net/nifty/wb/v2.1/index.html#">Another action</a></li>
-												<li><a href="http://www.themeon.net/nifty/wb/v2.1/index.html#">Something else here</a></li>
-												<li class="divider"></li>
-												<li><a href="http://www.themeon.net/nifty/wb/v2.1/index.html#">Separated link</a></li>
-											</ul>
-										</div>
+								<div class="span11 panel">
+									<div class="panel-header">
+										<i class="icon-signal icon-blue"></i>
 									</div>
-									<h3 class="panel-title">Network</h3>
+									<div id="containerx" style="width:100%; height:400px; margin: 0 auto;"></div>
 								</div>
+								<script type="text/javascript">
+									$(document).ready(function () {
+										var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");
+										fb.on("value", function(data) {
+											Highcharts.setOptions({
+												global: {
+													useUTC: false
+												}
+											});
 
-								<!--Morris line chart placeholder-->
-								<div id="morris-chart-network" class="morris-full-content" style="position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><svg height="310" version="1.1" width="792" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#000000" d="M25,285H767" stroke-opacity="0" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M25,220H767" stroke-opacity="0" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M25,155H767" stroke-opacity="0" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M25,90H767" stroke-opacity="0" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M25,25H767" stroke-opacity="0" stroke-width="0.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="#b8cee8" stroke="none" d="M25,253.8C32.13461538461539,250.55,46.40384615384615,242.26250000000002,53.53846153846154,240.8C60.67307692307693,239.3375,74.9423076923077,240.15,82.07692307692308,242.1C89.21153846153847,244.04999999999998,103.48076923076923,255.58749999999998,110.61538461538461,256.4C117.75,257.2125,132.01923076923077,254.77499999999998,139.15384615384616,248.6C146.28846153846155,242.425,160.55769230769232,212.2,167.6923076923077,207C174.8269230769231,201.8,189.09615384615384,208.625,196.23076923076923,207C203.3653846153846,205.375,217.6346153846154,195.1375,224.76923076923077,194C231.90384615384616,192.8625,246.17307692307693,200.49999999999997,253.30769230769232,197.89999999999998C260.44230769230774,195.29999999999998,274.71153846153845,176.2875,281.84615384615387,173.2C288.9807692307693,170.11249999999998,303.25,177.58749999999998,310.3846153846154,173.2C317.51923076923083,168.8125,331.78846153846155,145.25,338.92307692307696,138.1C346.0576923076923,130.95,360.3269230769231,116.1625,367.46153846153845,116C374.5961538461538,115.83749999999999,388.86538461538464,128.67499999999998,396,136.79999999999998C403.13461538461536,144.92499999999998,417.4038461538462,180.1875,424.53846153846155,181C431.6730769230769,181.8125,445.94230769230774,146.54999999999998,453.0769230769231,143.29999999999998C460.21153846153845,140.04999999999998,474.4807692307693,154.35,481.61538461538464,155C488.75,155.65,503.01923076923083,150.125,510.1538461538462,148.5C517.2884615384615,146.875,531.5576923076924,141.5125,538.6923076923077,142C545.8269230769231,142.4875,560.0961538461539,151.9125,567.2307692307693,152.4C574.3653846153846,152.88750000000002,588.6346153846155,139.07500000000002,595.7692307692308,145.9C602.9038461538462,152.725,617.173076923077,200.5,624.3076923076924,207C631.4423076923077,213.5,645.7115384615386,200.49999999999997,652.8461538461539,197.89999999999998C659.9807692307693,195.29999999999998,674.2500000000001,187.17499999999998,681.3846153846155,186.2C688.5192307692308,185.225,702.7884615384615,193.02499999999998,709.9230769230769,190.1C717.0576923076923,187.17499999999998,731.3269230769231,163.775,738.4615384615385,162.8C745.5961538461538,161.82500000000002,759.8653846153846,177.425,767,182.3L767,285L25,285Z" fill-opacity="0.7" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.7;"></path><path fill="none" stroke="#7faadd" d="M25,253.8C32.13461538461539,250.55,46.40384615384615,242.26250000000002,53.53846153846154,240.8C60.67307692307693,239.3375,74.9423076923077,240.15,82.07692307692308,242.1C89.21153846153847,244.04999999999998,103.48076923076923,255.58749999999998,110.61538461538461,256.4C117.75,257.2125,132.01923076923077,254.77499999999998,139.15384615384616,248.6C146.28846153846155,242.425,160.55769230769232,212.2,167.6923076923077,207C174.8269230769231,201.8,189.09615384615384,208.625,196.23076923076923,207C203.3653846153846,205.375,217.6346153846154,195.1375,224.76923076923077,194C231.90384615384616,192.8625,246.17307692307693,200.49999999999997,253.30769230769232,197.89999999999998C260.44230769230774,195.29999999999998,274.71153846153845,176.2875,281.84615384615387,173.2C288.9807692307693,170.11249999999998,303.25,177.58749999999998,310.3846153846154,173.2C317.51923076923083,168.8125,331.78846153846155,145.25,338.92307692307696,138.1C346.0576923076923,130.95,360.3269230769231,116.1625,367.46153846153845,116C374.5961538461538,115.83749999999999,388.86538461538464,128.67499999999998,396,136.79999999999998C403.13461538461536,144.92499999999998,417.4038461538462,180.1875,424.53846153846155,181C431.6730769230769,181.8125,445.94230769230774,146.54999999999998,453.0769230769231,143.29999999999998C460.21153846153845,140.04999999999998,474.4807692307693,154.35,481.61538461538464,155C488.75,155.65,503.01923076923083,150.125,510.1538461538462,148.5C517.2884615384615,146.875,531.5576923076924,141.5125,538.6923076923077,142C545.8269230769231,142.4875,560.0961538461539,151.9125,567.2307692307693,152.4C574.3653846153846,152.88750000000002,588.6346153846155,139.07500000000002,595.7692307692308,145.9C602.9038461538462,152.725,617.173076923077,200.5,624.3076923076924,207C631.4423076923077,213.5,645.7115384615386,200.49999999999997,652.8461538461539,197.89999999999998C659.9807692307693,195.29999999999998,674.2500000000001,187.17499999999998,681.3846153846155,186.2C688.5192307692308,185.225,702.7884615384615,193.02499999999998,709.9230769230769,190.1C717.0576923076923,187.17499999999998,731.3269230769231,163.775,738.4615384615385,162.8C745.5961538461538,161.82500000000002,759.8653846153846,177.425,767,182.3" stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="25" cy="253.8" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="53.53846153846154" cy="240.8" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="82.07692307692308" cy="242.1" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="110.61538461538461" cy="256.4" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="139.15384615384616" cy="248.6" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="167.6923076923077" cy="207" r="3" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="196.23076923076923" cy="207" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="224.76923076923077" cy="194" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="253.30769230769232" cy="197.89999999999998" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="281.84615384615387" cy="173.2" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="310.3846153846154" cy="173.2" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="338.92307692307696" cy="138.1" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="367.46153846153845" cy="116" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="396" cy="136.79999999999998" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="424.53846153846155" cy="181" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="453.0769230769231" cy="143.29999999999998" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="481.61538461538464" cy="155" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="510.1538461538462" cy="148.5" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="538.6923076923077" cy="142" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="567.2307692307693" cy="152.4" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="595.7692307692308" cy="145.9" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="624.3076923076924" cy="207" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="652.8461538461539" cy="197.89999999999998" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="681.3846153846155" cy="186.2" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="709.9230769230769" cy="190.1" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="738.4615384615385" cy="162.8" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="767" cy="182.3" r="0" fill="#3e80bd" stroke="none" stroke-width="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><path fill="#0a6ec5" stroke="none" d="M25,282.4C32.13461538461539,275.9,46.40384615384615,257.2125,53.53846153846154,256.4C60.67307692307693,255.58749999999998,74.9423076923077,273.29999999999995,82.07692307692308,275.9C89.21153846153847,278.5,103.48076923076923,278.825,110.61538461538461,277.2C117.75,275.575,132.01923076923077,264.36249999999995,139.15384615384616,262.9C146.28846153846155,261.4375,160.55769230769232,265.5,167.6923076923077,265.5C174.8269230769231,265.5,189.09615384615384,261.59999999999997,196.23076923076923,262.9C203.3653846153846,264.2,217.6346153846154,276.0625,224.76923076923077,275.9C231.90384615384616,275.73749999999995,246.17307692307693,263.38750000000005,253.30769230769232,261.6C260.44230769230774,259.8125,274.71153846153845,261.6,281.84615384615387,261.6C288.9807692307693,261.6,303.25,263.38750000000005,310.3846153846154,261.6C317.51923076923083,259.8125,331.78846153846155,248.1125,338.92307692307696,247.3C346.0576923076923,246.4875,360.3269230769231,252.0125,367.46153846153845,255.1C374.5961538461538,258.1875,388.86538461538464,271.8375,396,272C403.13461538461536,272.1625,417.4038461538462,255.91249999999997,424.53846153846155,256.4C431.6730769230769,256.8875,445.94230769230774,273.29999999999995,453.0769230769231,275.9C460.21153846153845,278.5,474.4807692307693,278.825,481.61538461538464,277.2C488.75,275.575,503.01923076923083,264.36249999999995,510.1538461538462,262.9C517.2884615384615,261.4375,531.5576923076924,265.5,538.6923076923077,265.5C545.8269230769231,265.5,560.0961538461539,261.59999999999997,567.2307692307693,262.9C574.3653846153846,264.2,588.6346153846155,276.0625,595.7692307692308,275.9C602.9038461538462,275.73749999999995,617.173076923077,263.38750000000005,624.3076923076924,261.6C631.4423076923077,259.8125,645.7115384615386,261.6,652.8461538461539,261.6C659.9807692307693,261.6,674.2500000000001,263.38750000000005,681.3846153846155,261.6C688.5192307692308,259.8125,702.7884615384615,246.4875,709.9230769230769,247.3C717.0576923076923,248.1125,731.3269230769231,267.2875,738.4615384615385,268.1C745.5961538461538,268.9125,759.8653846153846,257.375,767,253.8L767,285L25,285Z" fill-opacity="0.7" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); fill-opacity: 0.7;"></path><path fill="none" stroke="#005dad" d="M25,282.4C32.13461538461539,275.9,46.40384615384615,257.2125,53.53846153846154,256.4C60.67307692307693,255.58749999999998,74.9423076923077,273.29999999999995,82.07692307692308,275.9C89.21153846153847,278.5,103.48076923076923,278.825,110.61538461538461,277.2C117.75,275.575,132.01923076923077,264.36249999999995,139.15384615384616,262.9C146.28846153846155,261.4375,160.55769230769232,265.5,167.6923076923077,265.5C174.8269230769231,265.5,189.09615384615384,261.59999999999997,196.23076923076923,262.9C203.3653846153846,264.2,217.6346153846154,276.0625,224.76923076923077,275.9C231.90384615384616,275.73749999999995,246.17307692307693,263.38750000000005,253.30769230769232,261.6C260.44230769230774,259.8125,274.71153846153845,261.6,281.84615384615387,261.6C288.9807692307693,261.6,303.25,263.38750000000005,310.3846153846154,261.6C317.51923076923083,259.8125,331.78846153846155,248.1125,338.92307692307696,247.3C346.0576923076923,246.4875,360.3269230769231,252.0125,367.46153846153845,255.1C374.5961538461538,258.1875,388.86538461538464,271.8375,396,272C403.13461538461536,272.1625,417.4038461538462,255.91249999999997,424.53846153846155,256.4C431.6730769230769,256.8875,445.94230769230774,273.29999999999995,453.0769230769231,275.9C460.21153846153845,278.5,474.4807692307693,278.825,481.61538461538464,277.2C488.75,275.575,503.01923076923083,264.36249999999995,510.1538461538462,262.9C517.2884615384615,261.4375,531.5576923076924,265.5,538.6923076923077,265.5C545.8269230769231,265.5,560.0961538461539,261.59999999999997,567.2307692307693,262.9C574.3653846153846,264.2,588.6346153846155,276.0625,595.7692307692308,275.9C602.9038461538462,275.73749999999995,617.173076923077,263.38750000000005,624.3076923076924,261.6C631.4423076923077,259.8125,645.7115384615386,261.6,652.8461538461539,261.6C659.9807692307693,261.6,674.2500000000001,263.38750000000005,681.3846153846155,261.6C688.5192307692308,259.8125,702.7884615384615,246.4875,709.9230769230769,247.3C717.0576923076923,248.1125,731.3269230769231,267.2875,738.4615384615385,268.1C745.5961538461538,268.9125,759.8653846153846,257.375,767,253.8" stroke-width="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><circle cx="25" cy="282.4" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="53.53846153846154" cy="256.4" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="82.07692307692308" cy="275.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="110.61538461538461" cy="277.2" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="139.15384615384616" cy="262.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="167.6923076923077" cy="265.5" r="3" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="196.23076923076923" cy="262.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="224.76923076923077" cy="275.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="253.30769230769232" cy="261.6" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="281.84615384615387" cy="261.6" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="310.3846153846154" cy="261.6" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="338.92307692307696" cy="247.3" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="367.46153846153845" cy="255.1" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="396" cy="272" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="424.53846153846155" cy="256.4" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="453.0769230769231" cy="275.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="481.61538461538464" cy="277.2" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="510.1538461538462" cy="262.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="538.6923076923077" cy="265.5" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="567.2307692307693" cy="262.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="595.7692307692308" cy="275.9" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="624.3076923076924" cy="261.6" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="652.8461538461539" cy="261.6" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="681.3846153846155" cy="261.6" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="709.9230769230769" cy="247.3" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="738.4615384615385" cy="268.1" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle><circle cx="767" cy="253.8" r="0" fill="#3e80bd" stroke="#000000" stroke-width="1" stroke-opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></circle></svg><div class="morris-hover morris-default-style" style="left: 83.1923076923077px; top: 187px; display: block;"><div class="morris-hover-row-label">2013 - 06</div><div class="morris-hover-point" style="color: #7faadd">
-								  Download Speed:
-								  60 Mb/s
-								</div><div class="morris-hover-point" style="color: #005dad">
-								  Upload Speed:
-								  15 Mb/s
-								</div></div></div>
+											/* Binding data to model so we can reuse it*/
+//											var model = data.val()
+//											alert(JSON.stringify(model.uID));
 
-								<!--Chart information-->
-								<div class="panel-body bg-primary" style="position:relative;z-index:2">
-									<div class="row">
-										<div class="col-lg-6">
-											<div class="row">
-												<div class="col-xs-8">
+											$('#containerx').highcharts({
+												chart: {
+													type: 'spline',
+													animation: Highcharts.svg, // don't animate in old IE
+													marginRight: 10
+													// real time events every sec
+//                                      events: {
+//                                            load: function () {
+//
+//                                                // set up the updating of the chart each second
+//                                                var series = this.series[0];
+//                                                setInterval(function () {
+//                                                    var x = (new Date()).getTime(), // current time
+//                                                            y = Math.random();
+//                                                    series.addPoint([x, y], true, true);
+//                                                }, 1000);
+//                                            }
+//                                      }
+												},
+												title: {
+													text: 'Site Performance (Real-Time) '
+												},
+												// horizontal axis
+												xAxis: {
+													title: {
+														text: 'Elapsed Time'
+													},
+//                                    type: 'datetime',
+													dateTime: model.CommitNum.val()
+												},
+												// vertical axis
+												yAxis: {
+													title: {
+														text: 'Load Performance'
+													},
+													plotLines: [{
+														value: 0,
+														width: 1,
+														color: '#808080'
+													}]
+												},
+												tooltip: {
+													formatter: function () {
+														return '<b>' + this.series.name + '</b><br/>' +
+																Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+																Highcharts.numberFormat(this.y, 2);
+													}
+												},
+												legend: {
+													enabled: false
+												},
+												exporting: {
+													enabled: false
+												},
+												series: [{
+													name: 'Random data',
+													data: (function () {
+														// generate an array of random data
+														var data = [],
+																time = (new Date()).getTime(),
+																i;
 
-													<!--Server load stat-->
-													<div class="pad-ver media">
-														<div class="media-left">
-															<span class="icon-wrap icon-wrap-xs">
-																<i class="fa fa-cloud fa-2x"></i>
-															</span>
-														</div>
-
-														<div class="media-body">
-															<p class="h3 text-thin media-heading">30%</p>
-															<small class="text-uppercase">Server Load</small>
-														</div>
-													</div>
-
-													<!--Progress bar-->
-													<div class="progress progress-xs progress-dark-base mar-no">
-														<div class="progress-bar progress-bar-light" style="width: 30%"></div>
-													</div>
-
-												</div>
-												<div class="col-xs-4">
-													<!-- User Online -->
-													<div class="text-center">
-														<span class="text-3x text-thin">43</span>
-														<p>User Online</p>
-													</div>
-												</div>
-											</div>
-
-											<!--Additional text-->
-											<div class="mar-ver">
-												<small class="pad-btm"><em>* Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</em></small>
-											</div>
-
-										</div>
-										<div class="col-lg-6">
-
-											<!-- List Group -->
-											<ul class="list-group bg-trans mar-no">
-												<li class="list-group-item">
-													<!-- Sparkline chart -->
-													<div id="demo-chart-visitors" class="pull-right"><canvas width="110" height="22" style="display: inline-block; width: 110px; height: 22px; vertical-align: top;"></canvas></div> Visitors
-												</li>
-												<li class="list-group-item">
-													<!-- Sparkline chart -->
-													<div id="demo-chart-bounce-rate" class="pull-right"><canvas width="110" height="22" style="display: inline-block; width: 110px; height: 22px; vertical-align: top;"></canvas></div> Bounce rate
-												</li>
-												<li class="list-group-item">
-													<span class="badge badge-success">11</span>
-													Today sales
-												</li>
-												<li class="list-group-item">
-													<span class="badge badge-warning">20</span>
-													Broken links found
-												</li>
-											</ul>
-
-										</div>
-									</div>
-								</div>
-
-
+														for (i = -19; i <= 0; i += 1) {
+															data.push({
+																x: time + i * 1000,
+																y: Math.random()
+															});
+														}
+														return data;
+													}())
+												}]
+											});
+										});
+									});
+								</script>
 							</div>
 							<!--===================================================-->
 							<!--End network line chart-->
@@ -445,13 +459,9 @@
 
 					<div class="row">
 						<div class="col-md-12 col-lg-12">
-
-
-
 							<!--Simple pricing table-->
 							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 							<div class="row">
-
 								<!-- Action 1 -->
 								<div class="col-md-6 col-lg-4">
 									<div class="panel plan">
@@ -564,7 +574,7 @@
 
 
 										<ul class="collapse">
-											<li><a href="#">Full page load</a></li>
+											<li><a href="dashboard.html">Full page load</a></li>
 											<li><a href="#">Url specific load</a></li>  
 											<li><a href="#">Browser specific test</a></li> 
 										</ul>
@@ -616,7 +626,6 @@
 								<div class="mainnav-widget">
 									<div id="demo-wg-server2" class="hide-small mainnav-widget-content">
 										<ul style="margin-left:20%;">
- 
 											<li class="pad-ver"><a id="demo-bootbox-custom-h-form" href="#" class="btn btn-success btn-bock">Add Repositories +</a></li>
 										</ul>
 									</div>
@@ -655,11 +664,18 @@
 														<span class="sr-only">75%</span>
 													</div>
 												</div>
+
+												<div id="demo-wg-server2" class="hide-small mainnav-widget-content">
+													<ul style="margin-left:20%;">
+														<li class="pad-ver"><a href="#" class="btn btn-success btn-bock">View More Details</a></li>
+													</ul>
+												</div>
 											</li>
-											<!--<li class="pad-ver"><a href="http://www.themeon.net/nifty/wb/v2.1/index.html#" class="btn btn-success btn-bock">View Details</a></li>-->
 										</ul>
 									</div>
 								</div>
+
+
 								<!--================================-->
 								<!--End widget-->
 
@@ -1016,18 +1032,5 @@
 	</div>
 	<!--===================================================-->
 	<!-- END OF CONTAINER -->
-
-	<!--jQuery [ REQUIRED ]-->
-	<script src="js/jquery-2.1.1.min.js"></script>
-	<!--BootstrapJS [ RECOMMENDED ]-->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Plugins [ OPTIONAL ]-->
-	<script src="js/plugins.min.js"></script>
-	<!--Demo script [ DEMONSTRATION ]-->
-	<script src="js/nifty-demo.min.js"></script>
-	<!--Specify page [ SAMPLE ]-->
-	<script src="js/dashboard.js"></script>
-	<!-- Modals -->
-	<script src="js/ui-modals.js"></script>
 
 </body></html>

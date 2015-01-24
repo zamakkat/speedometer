@@ -11,7 +11,7 @@
 </head>
 <body>
 <!-- firebase & jquery --->
-<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src="js/firebase.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="http://code.highcharts.com/highcharts.js"></script>
 
@@ -149,16 +149,17 @@
                 <script type="text/javascript">
                     $(document).ready(function () {
                         var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");
-
                         fb.on("value", function(data) {
-                            /* Binding data to model so we can reuse it*/
-                            var model = data.val();
-
                             Highcharts.setOptions({
                                 global: {
                                     useUTC: false
                                 }
                             });
+
+                            /* Binding data to model so we can reuse it*/
+                            var model = data.val()
+                            alert(JSON.stringify(model.uID));
+
                             $('#container').highcharts({
                                 chart: {
                                     type: 'spline',
@@ -181,12 +182,15 @@
                                 title: {
                                     text: 'Site Performance (Real-Time) '
                                 },
+                                // horizontal axis
                                 xAxis: {
                                     title: {
                                         text: 'Elapsed Time'
                                     },
-                                    type: 'datetime'
+//                                    type: 'datetime',
+                                    dateTime: model.CommitNum.val()
                                 },
+                                // vertical axis
                                 yAxis: {
                                     title: {
                                         text: 'Load Performance'
