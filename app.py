@@ -2,10 +2,7 @@ from flask import Flask
 from flask import request
 from pymongo import MongoClient
 import os
-<<<<<<< HEAD
 import shutil
-=======
->>>>>>> 3c510331bfb37d3c79142c686af94bb7c21bb15b
 
 app = Flask(__name__)
 client = MongoClient('localhost', 27017)
@@ -14,12 +11,13 @@ client = MongoClient('localhost', 27017)
 def hello_world():
     return 'Hello World!'
 
-@app.route('/run')
-def run():
-    project_name = "project1"
-    shutil.copytree("test", project_name)
-    os.system("multimech-run " + project_name)
-    return 'OK!'
+@app.route('/run/<project_name>')
+def run(project_name):
+    if not project_name
+        return 'Invalid project name!', 403
+    shutil.copytree("tests/sample", "tests/" + project_name)
+    os.system("multimech-run tests/" + project_name)
+    return 'done!'
 
 @app.route('/clone', methods=['POST', 'GET'])
 def clone_new_repo():
