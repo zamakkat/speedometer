@@ -57,7 +57,7 @@ def run(project_name):
     return 'test done!'
 
 def data(project_name):
-    conn = sqlite3.connect('boostio.db')
+    conn = sqlite3.connect('tests/boostio.db')
     c = conn.cursor()
     c.execute('''
         SELECT MIN(scriptrun_time) FROM mechanize_results
