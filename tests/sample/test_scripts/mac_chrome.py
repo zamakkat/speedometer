@@ -18,7 +18,8 @@ class Transaction(object):
         # start the timer
         start_timer = time.time()
         # submit the request
-        resp = br.open('http://www.wikipedia.org/')
+        link = open('link.txt').read()
+        resp = br.open(link)
         resp.read()
         # stop the timer
         latency = time.time() - start_timer

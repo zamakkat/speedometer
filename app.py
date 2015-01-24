@@ -39,8 +39,9 @@ def fetch_repo(project_name):
 def run(project_name):
     if not project_name:
         return 'Invalid project name!', 403
-    shutil.copytree("tests/sample", "tests/" + project_name)
-    os.system("multimech-run tests/" + project_name)
+    if not os.path.isdir("tests/" + project_name):
+        shutil.copytree("tests/sample", "tests/" + project_name)
+    os.system("cd tests/ && multimech-run " + project_name)
     return 'test done!'
 
 if __name__ == '__main__':
