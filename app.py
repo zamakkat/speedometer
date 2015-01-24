@@ -3,6 +3,7 @@ from flask import request
 import sqlite3
 import os
 import shutil
+import json
 
 app = Flask(__name__)
 conn = sqlite3.connect('example.db')
@@ -53,8 +54,8 @@ def run(project_name):
     os.system("cd tests/ && multimech-run " + project_name)
 
     # Get final data
-    data(project_name)
-    return 'test done!'
+    response = data(project_name)
+    return response
 
 def data(project_name):
     conn = sqlite3.connect('tests/boostio.db')
@@ -84,7 +85,17 @@ def data(project_name):
     max_time = c.fetchall()
     print max_time[0][0]
     commit_info = os.popen('cd ~/external/%s && git log -1 --pretty=format:"%%h, %%cn, %%ce, %%cd, %%s"' %(project_name)).read()
-    print commit_info
+
+    commit = commit_info.split(',')
+    chash = commit[0]
+    author_name = commit[1]
+    author_email = commit[2]
+    date = commit[3]
+    message = commit[4]
+
+    return json.dumps(
+        {'commit': { 'hash': chash, 'author_name': author_name, 'author_email': author_email, 'date': date, 'message': message }, 
+        'stats': { 'avg': avg_time, 'min': min_time, 'max': max_time } } )
 
 
 
