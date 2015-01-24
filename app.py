@@ -66,7 +66,7 @@ def data(project_name):
             ( SELECT MAX(mechanize_global_configs_id) FROM mechanize_results WHERE project_name='%s' )
         ''' %(project_name, project_name))
     min_time = c.fetchall()
-    print min_time
+    print min_time[0][0]
     c.execute('''
         SELECT AVG(scriptrun_time) FROM mechanize_results
         WHERE project_name='%s'
@@ -74,7 +74,7 @@ def data(project_name):
             ( SELECT MAX(mechanize_global_configs_id) FROM mechanize_results WHERE project_name='%s' )
         ''' %(project_name, project_name))
     avg_time = c.fetchall()
-    print avg_time
+    print avg_time[0][0]
     c.execute('''
         SELECT MAX(scriptrun_time) FROM mechanize_results
         WHERE project_name='%s'
@@ -82,7 +82,7 @@ def data(project_name):
             ( SELECT MAX(mechanize_global_configs_id) FROM mechanize_results WHERE project_name='%s' )
         ''' %(project_name, project_name))
     max_time = c.fetchall()
-    print max_time
+    print max_time[0][0]
     commit_info = os.popen('cd ~/external/%s && git log -1 --pretty=format:"%%h, %%cn, %%ce, %%cd, %%s"' %(project_name)).read()
     print commit_info
 
