@@ -26,7 +26,7 @@ def clone_new_repo():
         return 'cannot deploy the new project. Test your deployment first dude!', 403
     test_result = run(project_name)
     firebase.post('/commit_details', test_result)
-    return "ok", 200
+    return test_result, 200
 
 @app.route('/pull/<project_name>')
 def fetch_repo(project_name):
@@ -38,7 +38,7 @@ def fetch_repo(project_name):
         return 'cannot deploy the new project. Test your deployment first dude!', 403
     test_result = run(project_name)
     firebase.post('/commit_details', test_result)
-    return "ok", 200
+    return test_result, 200
 
 @app.route('/run/<project_name>')
 def run(project_name):
