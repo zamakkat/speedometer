@@ -1,5 +1,7 @@
 
 ## Getting started
+> Note: If needed, use `sudo`
+
 1. Clone
 1. Install `visrtualenv`
 ```
@@ -19,6 +21,10 @@ $ pip install pymongo
 $ brew update
 $ brew install mongodb
 ```
+<!-- 1. Install `requests`
+```
+$ pip install requests
+``` -->
 
 ## Developing
 1. Create a `data/db` folder in root.
@@ -28,5 +34,5 @@ $ mongod --dbpath /path/to/project/folder/data/db
 ```
 1. Run the app
 ```
-python app.py
+$ python app.py
 ```
