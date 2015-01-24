@@ -51,7 +51,42 @@ def run(project_name):
 
     # Run the tests
     os.system("cd tests/ && multimech-run " + project_name)
+
+    # Get final data
+    data(project_name)
     return 'test done!'
+
+def data(project_name):
+    conn = sqlite3.connect('boostio.db')
+    c = conn.cursor()
+    c.execute('''
+        SELECT MIN(scriptrun_time) FROM mechanize_results
+        WHERE project_name='%s'
+        AND mechanize_global_configs_id=
+            ( SELECT MAX(mechanize_global_configs_id) FROM mechanize_results WHERE project_name='%s' )
+        ''' %(project_name, project_name))
+    min_time = c.fetchcall()
+    print min_time
+    c.execute('''
+        SELECT AVG(scriptrun_time) FROM mechanize_results
+        WHERE project_name='%s'
+        AND mechanize_global_configs_id=
+            ( SELECT MAX(mechanize_global_configs_id) FROM mechanize_results WHERE project_name='%s' )
+        ''' %(project_name, project_name))
+    avg_time = c.fetchcall()
+    print avg_time
+    c.execute('''
+        SELECT MAX(scriptrun_time) FROM mechanize_results
+        WHERE project_name='%s'
+        AND mechanize_global_configs_id=
+            ( SELECT MAX(mechanize_global_configs_id) FROM mechanize_results WHERE project_name='%s' )
+        ''' %(project_name, project_name))
+    max_time = c.fetchcall()
+    print max_time
+    commit_info = os.popen('cd ~/external/%s && git log -1 --pretty=format:"%h, %cn, %ce, %cd, %s"' %(project_name)).read()
+    print commit_info
+
+
 
 if __name__ == '__main__':
     app.debug = True
