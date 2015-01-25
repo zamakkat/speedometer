@@ -96,8 +96,8 @@ def data(project_name):
     date = commit[3]
     message = commit[4]
 
-    return {'commit': { 'hash': chash, 'author_name': author_name, 'author_email': author_email, 'date': date, 'message': message }, \
-        'stats': { 'avg': avg_time[0][0], 'min': min_time[0][0], 'max': max_time[0][0] } }
+    return json.dumps({'commit': { 'hash': chash, 'author_name': author_name, 'author_email': author_email, 'date': date, 'message': message },\
+        'stats': { 'avg': avg_time[0][0], 'min': min_time[0][0], 'max': max_time[0][0]}} )
 
 
 
