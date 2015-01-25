@@ -25,7 +25,7 @@ def clone_new_repo():
     elif os.system('cd ~/external/%s && git push boostiodokku master' %(project_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
     test_result = run(project_name)
-    firebase.post('/commit_details', test_result, {'print': 'pretty'}, {'Content-Type' : 'application/json'})
+    firebase.post('/commit_details', test_result)
     return test_result, 200
 
 @app.route('/pull/<project_name>')
@@ -37,7 +37,7 @@ def fetch_repo(project_name):
     elif os.system('cd ~/external/%s && git push boostiodokku master' %(project_name)) != 0:
         return 'cannot deploy the new project. Test your deployment first dude!', 403
     test_result = run(project_name)
-    firebase.post('/commit_details', test_result, {'print': 'pretty'}, {'Content-Type' : 'application/json'})
+    firebase.post('/commit_details', test_result)
     return test_result, 200
 
 @app.route('/run/<project_name>')
@@ -97,9 +97,9 @@ def data(project_name):
     date = commit[3]
     message = commit[4]
 
-    return json.dumps(
+    return
         {'commit': { 'hash': chash, 'author_name': author_name, 'author_email': author_email, 'date': date, 'message': message }, 
-        'stats': { 'avg': avg_time[0][0], 'min': min_time[0][0], 'max': max_time[0][0] } } )
+        'stats': { 'avg': avg_time[0][0], 'min': min_time[0][0], 'max': max_time[0][0] } }
 
 
 
