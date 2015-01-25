@@ -71,6 +71,16 @@
 					}
 
 					$('#container').highcharts({
+						events: {
+							load: function () {
+
+								// set up the updating of the chart each second
+								var series = this.series[0];
+								setInterval(function () {
+									var x = (new Date()).getTime()
+								});
+							}
+						},
 						chart: { type: 'spline' },
 						title: {
 							text: 'Loading Response Time'
@@ -79,6 +89,7 @@
 							title: {
 								text: 'Commit (Date)'
 							},
+							tickPixelInterval: 150,
 							type: 'datetime',
 							plotOptions: {
 								line: {
@@ -106,20 +117,23 @@
 									[1, '#E0E0E0']
 								]
 							},
+							formatter: function() {
+								return 'Load Time (s): <b>' + this.y + '</b> Commit Date:<b>' + this.x.toLocaleDateString() + '</b>';
+							},
 							borderWidth: 1,
 							borderColor: '#AAA'
 						},
 						series: [{
 							name: results[i],
 							data: data2,
-							pointInterval: 24 * 3600 * 1000 * 31,
-							pointStart: Date.UTC(2015, 0, 01)
+							pointInterval: 24 * 3600 * 1000,
+							pointStart: Date.UTC(2015, 5, 1)
 						}],
 						legend: {
 							enabled: false
 						},
 						exporting: {
-							enabled: false 
+							enabled: false
 						}
 					});
 				});
