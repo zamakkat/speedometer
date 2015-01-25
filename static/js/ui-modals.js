@@ -209,7 +209,7 @@
 						function clone(callback) {
 							$.ajax({
 								type: "POST",
-								url: 'http://128.199.66.127:8080/clone',
+								url: 'http://128.199.66.18:8080/clone',
 								data: { name: name1, url: url1 },
 								dataType: 'json',
 								success: callback
