@@ -51,8 +51,33 @@
 
 
 			<script>
-				var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");
+				var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/commit_details");
+				fb.on("value", function(data) {
 
+//					var arr = [];
+//					for (var i = 0; i < fb.length; i++) {
+//						arr.push(this.id);
+//					}
+//					var model = data.val()[arr.id];
+					var results = [];
+					data.forEach(function(a) {results.push(a.val())});
+					console.log(results[0].commit.author_email);
+					
+//					$('#container').highcharts({
+//						chart: { type: 'column' },
+//						title: { text: 'Sales' },
+//						xAxis: {
+//							categories: model.Categories
+//						},
+//						yAxis: { title: { text: 'Quantity' } },
+//						series: model.Series.map(function(element) {
+//							return {
+//								name: element.Name,
+//								data: element.Data
+//							}
+//						})
+//					});
+				});
 			</script>
 
 
