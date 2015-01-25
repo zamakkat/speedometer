@@ -111,7 +111,9 @@
 						},
 						series: [{
 							name: results[i],
-							data: data2
+							data: data2,
+							pointInterval: 24 * 3600 * 1000 * 31,
+							pointStart: Date.UTC(2015, 0, 01)
 						}],
 						legend: {
 							enabled: false
