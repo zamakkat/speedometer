@@ -27,7 +27,7 @@ def clone_new_repo():
     firebase.post('/commit_details', test_result)
     return json.dumps(test_result), 200
 
-@app.route('/pull/<project_name>')
+@app.route('/pull/<project_name>', methods=['GET','POST'])
 def fetch_repo(project_name):
     if os.system('cd ~/external/%s' %(project_name)) != 0:
         return 'repo not existed or cannot be accessed, try using /clone instead', 403
