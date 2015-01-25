@@ -148,36 +148,32 @@
 
                 <script type="text/javascript">
                     $(document).ready(function () {
-                        var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");
-                        fb.on("value", function(data) {
+                        // var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");
+                        // fb.on("value", function(data) {
                             Highcharts.setOptions({
                                 global: {
                                     useUTC: false
                                 }
                             });
-
-                            /* Binding data to model so we can reuse it*/
-                            var model = data.val()
-                            alert(JSON.stringify(model.uID));
+ 
 
                             $('#container').highcharts({
                                 chart: {
                                     type: 'spline',
                                     animation: Highcharts.svg, // don't animate in old IE
-                                    marginRight: 10
+                                    marginRight: 10,
                                     // real time events every sec
-//                                      events: {
-//                                            load: function () {
-//
-//                                                // set up the updating of the chart each second
-//                                                var series = this.series[0];
-//                                                setInterval(function () {
-//                                                    var x = (new Date()).getTime(), // current time
-//                                                            y = Math.random();
-//                                                    series.addPoint([x, y], true, true);
-//                                                }, 1000);
-//                                            }
-//                                      }
+                                    events: {
+                                           load: function () {
+                                               // set up the updating of the chart each second
+                                               var series = this.series[0];
+                                               setInterval(function () {
+                                                   var x = (new Date()).getTime(), // current time
+                                                           y = Math.random();
+                                                   series.addPoint([x, y], true, true);
+                                               }, 1000);
+                                           }
+                                     }
                                 },
                                 title: {
                                     text: 'Site Performance (Real-Time) '
@@ -186,9 +182,9 @@
                                 xAxis: {
                                     title: {
                                         text: 'Elapsed Time'
-                                    },
+                                    }
 //                                    type: 'datetime',
-                                    dateTime: model.CommitNum.val()
+                                    // dateTime: model.CommitNum.val()
                                 },
                                 // vertical axis
                                 yAxis: {
@@ -238,7 +234,7 @@
                                     }())
                                 }]
                             });
-                        });
+                        // });
                     });
                 </script>
 

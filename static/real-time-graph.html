@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Boost.IO  - Performance Testing Watcher for Developers</title>
+
+
+	<!--STYLESHEET-->
+	<!--=================================================-->
+
+
+	<!--Roboto Font [ OPTIONAL ]-->
+	<link href="css" rel="stylesheet" type="text/css">
+	<!--Bootstrap Stylesheet [ REQUIRED ]-->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!--Nifty Stylesheet [ REQUIRED ]-->
+	<link href="css/nifty.min.css" rel="stylesheet">
+	<!--Page Load Progress Bar [ OPTIONAL ]-->
+	<link href="css/pace.min.css" rel="stylesheet">
+	<!--jQuery [ REQUIRED ]-->
+	<script src="js/pace.min.js"></script>
+	<!--jQuery [ REQUIRED ]-->
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<!--BootstrapJS [ RECOMMENDED ]-->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Adding firebase -->
+	<script src="js/firebase.js"></script>
+
+	<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background-color: #212633;border-radius: 2px;color: white;text-align: right;white-space: nowrap;padding: 7px 14px;z-index: 10000;}.jqsfield { color: white;font-size: 14;text-align: right;}</style></head>
+
+<body class="nifty-ready  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
+	<div class="pace-progress-inner"></div>
+</div>
+	<div class="pace-activity"></div></div>
+
+<div id="page-content">
+	<div class="row">
+		<div class="col-lg-12">
+			<!--Endpoint #1 Normal Performance Graph-->
+			<!--===================================================-->
+			<!--<script>-->
+			<!--var ref = new Firebase("https://vivid-torch-3095.firebaseio.com/commit_details");-->
+			<!--// Attach an asynchronous callback to read the data at our posts reference-->
+			<!--ref.on("value", function(data) {-->
+			<!--alert(JSON.stringify(data));-->
+			<!--});-->
+
+			<div class="span11 panel">
+				<div id="container" style="width:100%; height:250px; margin: 0 auto;"></div>
+			</div>
+
+
+			<script>
+				var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");
+
+			</script>
+
+
+			<!-- firebase graph -->
+			<!--<script>-->
+				<!--var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");-->
+				<!--fb.on("value", function(data) {-->
+					<!--var model = data.commit_detailsval();-->
+					<!--$('#container').highcharts({-->
+						<!--chart: { type: 'spline' },-->
+						<!--title: {-->
+							<!--text: 'Site Performance (Real-Time) '-->
+						<!--},-->
+						<!--xAxis: {-->
+							<!--title: {-->
+								<!--text: 'Elapsed Time'-->
+							<!--}-->
+						<!--},-->
+						<!--yAxis: { title: { text: 'Quantity' } },-->
+						<!--series: model.Series(function(element) {-->
+							<!--return {-->
+								<!--name: element.Name,-->
+								<!--data: element.Data-->
+							<!--}-->
+						<!--})-->
+					<!--});-->
+				<!--});-->
+			<!--</script>-->
+
+			<!--<script type="text/javascript">-->
+				<!--$(document).ready(function () {-->
+					<!--// var fb = new Firebase("https://vivid-torch-3095.firebaseio.com/");-->
+					<!--// fb.on("value", function(data) {-->
+					<!--Highcharts.setOptions({-->
+						<!--global: {-->
+							<!--useUTC: false-->
+						<!--}-->
+					<!--});-->
+
+
+					<!--$('#container').highcharts({-->
+						<!--chart: {-->
+							<!--type: 'spline',-->
+							<!--animation: Highcharts.svg, // don't animate in old IE-->
+							<!--marginRight: 10,-->
+							<!--// real time events every sec-->
+							<!--events: {-->
+								<!--load: function () {-->
+									<!--// set up the updating of the chart each second-->
+									<!--var series = this.series[0];-->
+									<!--setInterval(function () {-->
+										<!--var x = (new Date()).getTime(), // current time-->
+												<!--y = Math.random();-->
+										<!--series.addPoint([x, y], true, true);-->
+									<!--}, 1000);-->
+								<!--}-->
+							<!--}-->
+						<!--},-->
+						<!--title: {-->
+							<!--text: 'Site Performance (Real-Time) '-->
+						<!--},-->
+						<!--// horizontal axis-->
+						<!--xAxis: {-->
+							<!--title: {-->
+								<!--text: 'Elapsed Time'-->
+							<!--}-->
+<!--//                                    type: 'datetime',-->
+							<!--// dateTime: model.CommitNum.val()-->
+						<!--},-->
+						<!--// vertical axis-->
+						<!--yAxis: {-->
+							<!--title: {-->
+								<!--text: 'Load Performance'-->
+							<!--},-->
+							<!--plotLines: [{-->
+								<!--value: 0,-->
+								<!--width: 1,-->
+								<!--color: '#808080'-->
+							<!--}]-->
+						<!--},-->
+						<!--tooltip: {-->
+							<!--formatter: function () {-->
+								<!--return '<b>' + this.series.name + '</b><br/>' +-->
+										<!--Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +-->
+										<!--Highcharts.numberFormat(this.y, 2);-->
+							<!--}-->
+						<!--},-->
+						<!--legend: {-->
+							<!--enabled: false-->
+						<!--},-->
+						<!--exporting: {-->
+							<!--enabled: false-->
+						<!--},-->
+<!--//                                series: model.Series.map(function(element) {-->
+<!--//                                    name: 'Github Commit'-->
+<!--//                                    return {-->
+<!--//                                        data: element.Data-->
+<!--//                                    }-->
+<!--//                                })-->
+						<!--series: [{-->
+							<!--name: 'Random data',-->
+							<!--data: (function () {-->
+								<!--// generate an array of random data-->
+								<!--var data = [],-->
+										<!--time = (new Date()).getTime(),-->
+										<!--i;-->
+
+								<!--for (i = -19; i <= 0; i += 1) {-->
+									<!--data.push({-->
+										<!--x: time + i * 1000,-->
+										<!--y: Math.random()-->
+									<!--});-->
+								<!--}-->
+								<!--return data;-->
+							<!--}())-->
+						<!--}]-->
+					<!--});-->
+					<!--// });-->
+				<!--});-->
+			<!--</script>-->
+		</div>
+	</div>
+</div>
+<!--===================================================-->
+<!-- END OF CONTAINER -->
+
+
+<!--jQuery [ REQUIRED ]-->
+<script src="js/jquery-2.1.1.min.js"></script>
+<!--BootstrapJS [ RECOMMENDED ]-->
+<script src="js/bootstrap.min.js"></script>
+<!-- Plugins [ OPTIONAL ]-->
+<script src="js/plugins.min.js"></script>
+<!--Demo script [ DEMONSTRATION ]-->
+<script src="js/nifty-demo.min.js"></script>
+<!--Specify page [ SAMPLE ]-->
+<script src="js/dashboard.js"></script>
+<!-- Modals -->
+<script src="js/ui-modals.js"></script>
+<!--Charts -->
+<script src="js/charts.js"></script>
+<script src="js/highcharts.js"></script>
+
+
+
+</body></html>

@@ -23,843 +23,783 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<!--BootstrapJS [ RECOMMENDED ]-->
 	<script src="js/bootstrap.min.js"></script>
+	<!-- Adding firebase -->
+	<script src="js/firebase.js"></script>
 
-<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background-color: #212633;border-radius: 2px;color: white;text-align: right;white-space: nowrap;padding: 7px 14px;z-index: 10000;}.jqsfield { color: white;font-size: 14;text-align: right;}</style></head>
- 
+	<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background-color: #212633;border-radius: 2px;color: white;text-align: right;white-space: nowrap;padding: 7px 14px;z-index: 10000;}.jqsfield { color: white;font-size: 14;text-align: right;}</style></head>
+
 <body class="nifty-ready  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
-  <div class="pace-progress-inner"></div>
+	<div class="pace-progress-inner"></div>
 </div>
-<div class="pace-activity"></div></div>
-	<div id="container" class="effect mainnav-lg">
-		
-		<!--NAVBAR-->
-		<!--===================================================-->
-		<header id="navbar" class="shadow">
-			<div id="navbar-container" class="boxed">
+	<div class="pace-activity"></div></div>
+<div id="container" class="effect mainnav-lg">
 
-				<!--Brand logo & name-->
-				<!--================================-->
-				<div class="navbar-header">
-					<a href="index.html" class="navbar-brand">
-						<div class="brand-icon">
-							<i class="fa fa-rocket" style="margin-left:37%"></i>
-						</div>
-						<div class="brand-title">
-							<span class="brand-text">Boost.IO</span>
-						</div>
-					</a>
-				</div>
-				<!--================================-->
-				<!--End brand logo & name-->
+	<!--NAVBAR-->
+	<!--===================================================-->
+	<header id="navbar" class="shadow">
+		<div id="navbar-container" class="boxed">
 
-				<!--Navbar Dropdown-->
-				<!--================================-->
-				<div class="navbar-content clearfix">
-					<ul class="nav navbar-top-links pull-left">
+			<!--Brand logo & name-->
+			<!--================================-->
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">
+					<div class="brand-icon">
+						<i class="fa fa-rocket" style="margin-left:37%"></i>
+					</div>
+					<div class="brand-title">
+						<span class="brand-text">Boost.IO</span>
+					</div>
+				</a>
+			</div>
+			<!--================================-->
+			<!--End brand logo & name-->
 
-						<!--Navigation toogle button-->
-						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-						<li class="tgl-menu-btn">
-							<a class="mainnav-toggle" href=" #">
-								<i class="fa fa-navicon fa-lg"></i>
-							</a>
-						</li>   
- 
+			<!--Navbar Dropdown-->
+			<!--================================-->
+			<div class="navbar-content clearfix">
+				<ul class="nav navbar-top-links pull-left">
 
-					</ul>
-					<ul class="nav navbar-top-links pull-right">
+					<!--Navigation toogle button-->
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<li class="tgl-menu-btn">
+						<a class="mainnav-toggle" href=" #">
+							<i class="fa fa-navicon fa-lg"></i>
+						</a>
+					</li>
 
-						<!--Language selector-->
-						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-						<li class="dropdown">
-							<a id="demo-lang-switch" class="lang-selector dropdown-toggle" href=" #" data-toggle="dropdown">
+
+				</ul>
+				<ul class="nav navbar-top-links pull-right">
+
+					<!--Language selector-->
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<li class="dropdown">
+						<a id="demo-lang-switch" class="lang-selector dropdown-toggle" href=" #" data-toggle="dropdown">
 								<span class="lang-selected">
 									<img class="lang-flag" src="img/united-kingdom.png" alt="English">
 									<span class="lang-id">EN</span>
 									<span class="lang-name">English</span>
 								</span>
-							</a>
+						</a>
 
-							<!--Language selector menu-->
-							<ul class="head-list dropdown-menu with-arrow">
-								<li>
-									<!--English-->
-									<a href=" #" class="active">
-										<img class="lang-flag" src="img/united-kingdom.png" alt="English">
-										<span class="lang-id">EN</span>
-										<span class="lang-name">English</span>
-									</a>
-								</li>
-								<li>
-									<!--France-->
-									<a href=" #">
-										<img class="lang-flag" src="img/france.png" alt="France">
-										<span class="lang-id">FR</span>
-										<span class="lang-name">Français</span>
-									</a>
-								</li>
-								<li>
-									<!--Germany-->
-									<a href=" #">
-										<img class="lang-flag" src="img/germany.png" alt="Germany">
-										<span class="lang-id">DE</span>
-										<span class="lang-name">Deutsch</span>
-									</a>
-								</li>
-								<li>
-									<!--Italy-->
-									<a href=" #">
-										<img class="lang-flag" src="img/italy.png" alt="Italy">
-										<span class="lang-id">IT</span>
-										<span class="lang-name">Italiano</span>
-									</a>
-								</li>
-								<li>
-									<!--Spain-->
-									<a href=" #">
-										<img class="lang-flag" src="img/spain.png" alt="Spain">
-										<span class="lang-id">ES</span>
-										<span class="lang-name">Español</span>
-									</a>
-								</li>
-							</ul>
-						</li>
-						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-						<!--End language selector-->
-
-
-
-						<!--User dropdown-->
-						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-						<li id="dropdown-user" class="dropdown">
-							<a href=" #" data-toggle="dropdown" class="dropdown-toggle text-right" aria-expanded="false">
-								<span class="pull-right">
-									<img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
-								</span>
-								<div class="username hidden-xs">Stewart Huang</div>
-							</a>
-
-
-							<div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
-
-								<!-- Dropdown heading  -->
-								<div class="pad-all bord-btm">
-									<p class="text-lg text-muted text-thin mar-btm">750Gb of 1,000Gb Used</p>
-									<div class="progress progress-sm">
-										<div class="progress-bar" style="width: 70%;">
-											<span class="sr-only">70%</span>
-										</div>
-									</div>
-								</div>
-
-
-								<!-- User dropdown menu -->
-								<ul class="head-list">
-									<li>
-										<a href="#">
-											<i class="fa fa-user fa-fw fa-lg"></i> Profile
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<span class="badge badge-danger pull-right">9</span>
-											<i class="fa fa-envelope fa-fw fa-lg"></i> Messages
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<span class="label label-success pull-right">New</span>
-											<i class="fa fa-gear fa-fw fa-lg"></i> Settings
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-question-circle fa-fw fa-lg"></i> Help
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<i class="fa fa-lock fa-fw fa-lg"></i> Lock screen
-										</a>
-									</li>
-								</ul>
-
-								<!-- Dropdown footer -->
-								<div class="pad-all text-right">
-									<a href="#" class="btn btn-primary">
-										<i class="fa fa-sign-out fa-fw"></i> Logout
-									</a>
-								</div>
-							</div>
-						</li>
-						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-						<!--End user dropdown-->
-
-					</ul>
-				</div>
-				<!--================================-->
-				<!--End Navbar Dropdown-->
-
-			</div>
-		</header>
-		<!--===================================================-->
-		<!--END NAVBAR-->
-
-		<div class="boxed">
-
-			<!--CONTENT CONTAINER-->
-			<!--===================================================-->
-			<div id="content-container">
-				
-				<!--Page Title-->
-				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<div id="page-title">
-					<h1 class="page-header text-overflow">Performance Graph</h1>
-
-					<!--Searchbox-->
-					<div class="searchbox">
-						<div class="input-group custom-search-form">
-							<input type="text" class="form-control" placeholder="Search.." style="visibility:hidden">
-							<span class="input-group-btn">
-								<a id="demo-bootbox-custom-h-form-2" href="#" class="btn btn-success btn-bock">Add Repositories</a>
-							</span>
-						</div>
-					</div>
-				</div>
-				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<!--End page title-->
-
-
-				<!--Breadcrumb-->
-				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-			 	<!--<ol class="breadcrumb">
-					<li><a href=" #">Home</a></li>
-					<li><a href=" #">Library</a></li>
-					<li class="active">Data</li>
-				</ol> -->
-				<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-				<!--End breadcrumb-->
-
-				<!--Page content-->
-				<div id="page-content">
-
-
-
-
-					<div class="row">
-						<div class="col-lg-12">
-							<!--Endpoint #1 Normal Performance Graph-->
-							<!--===================================================-->
-							<div id="demo-panel-network" class="panel">
-								<div class="row">
-									<div class="col-lg-8">
-										<div class="panel">
-											<div class="panel-heading">
-												<h3 class="panel-title">Line Chart</h3>
-											</div>
-											<div class="panel-body">
-
-												<!--Flot Line Chart placeholder-->
-												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-												<div id="demo-flot-line" style="height: 212px; padding: 0px; position: relative;"><canvas class="flot-base" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><div class="flot-text" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; font-size: smaller; color: rgb(84, 84, 84);"><div class="flot-x-axis flot-x1-axis xAxis x1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 21px; text-align: center;">1.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 70px; text-align: center;">2.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 119px; text-align: center;">3.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 168px; text-align: center;">4.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 217px; text-align: center;">5.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 266px; text-align: center;">6.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 316px; text-align: center;">7.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 365px; text-align: center;">8.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 414px; text-align: center;">9.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 460px; text-align: center;">10.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 509px; text-align: center;">11.0</div><div class="flot-tick-label tickLabel" style="position: absolute; max-width: 48px; top: 198px; left: 558px; text-align: center;">12.0</div></div><div class="flot-y-axis flot-y1-axis yAxis y1Axis" style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; display: block;"><div class="flot-tick-label tickLabel" style="position: absolute; top: 186px; left: 17px; text-align: right;">0</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 156px; left: 0px; text-align: right;">1000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 125px; left: 0px; text-align: right;">2000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 95px; left: 0px; text-align: right;">3000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 64px; left: 0px; text-align: right;">4000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 34px; left: 0px; text-align: right;">5000</div><div class="flot-tick-label tickLabel" style="position: absolute; top: 3px; left: 0px; text-align: right;">6000</div></div></div><canvas class="flot-overlay" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><div class="legend"><div style="position: absolute; width: 63px; height: 28px; top: 10px; left: 43px; opacity: 0.85; background-color: rgb(255, 255, 255);"> </div><table style="position:absolute;top:10px;left:43px;;font-size:smaller;color:#545454"><tbody><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(23,123,187);overflow:hidden"></div></div></td><td class="legendLabel">Pageviews</td></tr><tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px"><div style="width:4px;height:0;border:5px solid rgb(23,123,187);overflow:hidden"></div></div></td><td class="legendLabel">Visitors</td></tr></tbody></table></div></div>
-												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-											</div>
-										</div>
-									</div>
-									<div class="col-lg-6">
-										<div class="panel">
-											<div class="panel-heading">
-												<h3 class="panel-title">Pie Chart</h3>
-											</div>
-											<div class="panel-body">
-
-												<!--Flot Donut Chart placeholder -->
-												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-												<div id="demo-flot-donut" style="height: 212px; padding: 0px; position: relative;"><canvas class="flot-base" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><canvas class="flot-overlay" width="1156" height="424" style="direction: ltr; position: absolute; left: 0px; top: 0px; width: 578px; height: 212px;"></canvas><span class="pieLabel" id="pieLabel0" style="position: absolute; top: 135px; left: 347.5px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#177bbb;">Comedy<br>66%</div></span><span class="pieLabel" id="pieLabel1" style="position: absolute; top: 92px; left: 181.5px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#a6c600;">Action<br>16%</div></span><span class="pieLabel" id="pieLabel2" style="position: absolute; top: 21px; left: 204px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#8669CC;">Adventure<br>12%</div></span><span class="pieLabel" id="pieLabel3" style="position: absolute; top: 0px; left: 256px;"><div style="font-size:x-small;text-align:center;padding:2px;color:#f84f9a;">Drama<br>6%</div></span></div>
-												<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--===================================================-->
-							<!--End network line chart-->
-
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-12 col-lg-12">
-							<!--Simple pricing table-->
-							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-							<div class="row">
-								<!-- Action 1 -->
-								<div class="col-md-6 col-lg-4">
-									<div class="panel plan">
-										<div class="panel-body">
-											<button class="btn btn-block btn-primary btn-lg">Choose</button>
-										</div>
-									</div>
-								</div>
-
-								<!-- Action 2 -->
-								<div class="col-md-6 col-lg-4">
-									<div class="panel plan">
-										<div class="panel-body">
-											<button class="btn btn-block btn-mint btn-lg">Choose</button>
-										</div>
-									</div>
-								</div>
-
-								<!-- Action 3 -->
-								<div class="col-md-12 col-lg-4">
-									<div class="panel plan">
-										<div class="panel-body">
-											<button class="btn btn-block btn-purple btn-lg">Choose</button>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-							<!--End Simple pricing table-->
-
-
-
-
-						</div>
-						<div class="col-lg-5">
-							<div class="row">
-							</div>
-										<!--Chart placeholder -->
-										<div style="display:none" id="demo-morris-donut" style="width:200px; height:200px" class="morris-donut"><svg height="200" version="1.1" width="200" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.328125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#9d7fe4" d="M100,160A60,60,0,0,0,156.95770043472743,118.86320124442965" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#9d7fe4" stroke="#ffffff" d="M100,163A63,63,0,0,0,159.8055854564638,119.80636130665113L180.69007561586383,126.72286842960867A85,85,0,0,1,100,185Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#7553c9" d="M156.95770043472743,118.86320124442965A60,60,0,0,0,46.2086089202603,73.42019101448432" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#7553c9" stroke="#ffffff" d="M159.8055854564638,119.80636130665113A63,63,0,0,0,43.51903936627332,72.09120056520852L19.312913380390455,60.13028652172646A90,90,0,0,1,185.4365506520911,128.29480186664446Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#8669cc" d="M46.2086089202603,73.42019101448432A60,60,0,0,0,99.98115044438853,159.9999970391187" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#8669cc" stroke="#ffffff" d="M43.51903936627332,72.09120056520852A63,63,0,0,0,99.98020796660796,162.99999689107466L99.97329646288375,184.99999580541817A85,85,0,0,1,23.795529303702097,62.345270603852775Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="100" y="90" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: 800; font-stretch: normal; font-size: 15px; line-height: normal; font-family: Arial;" font-size="15px" font-weight="800" transform="matrix(1.5,0,0,1.5,-50,-50)" stroke-width="0.6666666666666666"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Sales</tspan></text><text x="100" y="110" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; line-height: normal; font-family: Arial;" font-size="14px" transform="matrix(1.0526,0,0,1.0526,-5.2632,-5.2895)" stroke-width="0.9500000000000001"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan></text></svg></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--===================================================-->
-			<!--END CONTENT CONTAINER-->
-
-
-			
-			<!--MAIN NAVIGATION-->
-			<!--===================================================-->
-			<nav id="mainnav-container">
-				<div id="mainnav">
-
-					<!--Shortcut buttons-->
-					<!--================================-->
-					<div id="mainnav-shortcut">
-						<ul class="list-unstyled">
-							<li class="col-xs-4" data-content="Additional Sidebar" data-original-title="" title="">
-								<a id="demo-toggle-aside" class="shortcut-grid" href="#">
-									<i class="fa fa-magic"></i>
+						<!--Language selector menu-->
+						<ul class="head-list dropdown-menu with-arrow">
+							<li>
+								<!--English-->
+								<a href=" #" class="active">
+									<img class="lang-flag" src="img/united-kingdom.png" alt="English">
+									<span class="lang-id">EN</span>
+									<span class="lang-name">English</span>
 								</a>
 							</li>
-							<li class="col-xs-4" data-content="Notification" data-original-title="" title="">
-								<a id="demo-alert" class="shortcut-grid" href="#">
-									<i class="fa fa-bullhorn"></i>
+							<li>
+								<!--France-->
+								<a href=" #">
+									<img class="lang-flag" src="img/france.png" alt="France">
+									<span class="lang-id">FR</span>
+									<span class="lang-name">Français</span>
 								</a>
 							</li>
-							<li class="col-xs-4" data-content="Page Alerts" data-original-title="" title="">
-								<a id="demo-page-alert" class="shortcut-grid" href="#">
-									<i class="fa fa-bell"></i>
+							<li>
+								<!--Germany-->
+								<a href=" #">
+									<img class="lang-flag" src="img/germany.png" alt="Germany">
+									<span class="lang-id">DE</span>
+									<span class="lang-name">Deutsch</span>
+								</a>
+							</li>
+							<li>
+								<!--Italy-->
+								<a href=" #">
+									<img class="lang-flag" src="img/italy.png" alt="Italy">
+									<span class="lang-id">IT</span>
+									<span class="lang-name">Italiano</span>
+								</a>
+							</li>
+							<li>
+								<!--Spain-->
+								<a href=" #">
+									<img class="lang-flag" src="img/spain.png" alt="Spain">
+									<span class="lang-id">ES</span>
+									<span class="lang-name">Español</span>
 								</a>
 							</li>
 						</ul>
+					</li>
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<!--End language selector-->
+
+
+
+					<!--User dropdown-->
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<li id="dropdown-user" class="dropdown">
+						<a href=" #" data-toggle="dropdown" class="dropdown-toggle text-right" aria-expanded="false">
+								<span class="pull-right">
+									<img class="img-circle img-user media-object" src="img/av1.png" alt="Profile Picture">
+								</span>
+							<div class="username hidden-xs">Stewart Huang</div>
+						</a>
+
+
+						<div class="dropdown-menu dropdown-menu-md dropdown-menu-right with-arrow panel-default">
+
+							<!-- Dropdown heading  -->
+							<div class="pad-all bord-btm">
+								<p class="text-lg text-muted text-thin mar-btm">750Gb of 1,000Gb Used</p>
+								<div class="progress progress-sm">
+									<div class="progress-bar" style="width: 70%;">
+										<span class="sr-only">70%</span>
+									</div>
+								</div>
+							</div>
+
+
+							<!-- User dropdown menu -->
+							<ul class="head-list">
+								<li>
+									<a href="#">
+										<i class="fa fa-user fa-fw fa-lg"></i> Profile
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span class="badge badge-danger pull-right">9</span>
+										<i class="fa fa-envelope fa-fw fa-lg"></i> Messages
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span class="label label-success pull-right">New</span>
+										<i class="fa fa-gear fa-fw fa-lg"></i> Settings
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-question-circle fa-fw fa-lg"></i> Help
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fa fa-lock fa-fw fa-lg"></i> Lock screen
+									</a>
+								</li>
+							</ul>
+
+							<!-- Dropdown footer -->
+							<div class="pad-all text-right">
+								<a href="#" class="btn btn-primary">
+									<i class="fa fa-sign-out fa-fw"></i> Logout
+								</a>
+							</div>
+						</div>
+					</li>
+					<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+					<!--End user dropdown-->
+
+				</ul>
+			</div>
+			<!--================================-->
+			<!--End Navbar Dropdown-->
+
+		</div>
+	</header>
+	<!--===================================================-->
+	<!--END NAVBAR-->
+
+	<div class="boxed">
+
+		<!--CONTENT CONTAINER-->
+		<!--===================================================-->
+		<div id="content-container">
+			<!--Page Title-->
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<div id="page-title" class="row">
+				<h1 class="page-header text-overflow">Full Page Load Test (System Performance Graph)</h1>
+				<iframe src="real-time-graph.html" width="1100" height="600" scrolling="no"></iframe>
+			</div>
+			<div id="page-content">
+				<div class="row">
+					<h1 class="page-header text-overflow">Recent Activity Log</h1>
+					<div class="col-md-12 col-lg-12">
+						<!--Simple pricing table-->
+						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+						<div class="row">
+							<div id="demo-panel-network" class="panel">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="panel">
+											<div class="panel-heading">
+												<h3 class="panel-title"></h3>
+											</div>
+											<div class="panel-body">
+												<div class="table-responsive">
+													<table class="table table-striped">
+														<thead>
+														<tr>
+															<th>Commit #</th>
+															<th>Author Email</th>
+															<th>Date-Time</th>
+															<th>Message</th>
+															<th>Max Load Time</th>
+															<th>Min Load Time</th>
+															<th>Avg Load Time</th>
+															<th>Indicator</th>
+														</tr>
+														</thead>
+														<tbody>
+														<tr style="font-size:9pt">
+															<td>1</td>
+															<td>2</td>
+															<td>3</td>
+															<td>4</td>
+															<td>5</td>
+															<td>6</td>
+															<td>7</td>
+															<td style="font-size:11pt"><i class="fa fa-thumbs-up"></i></td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+						<!--End Simple pricing table-->
 					</div>
-					<!--================================-->
-					<!--End shortcut buttons-->
+					<div class="col-lg-5">
+						<div class="row">
+						</div>
+						<!--Chart placeholder -->
+						<div style="display:none" id="demo-morris-donut" style="width:200px; height:200px" class="morris-donut"><svg height="200" version="1.1" width="200" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.328125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs><path fill="none" stroke="#9d7fe4" d="M100,160A60,60,0,0,0,156.95770043472743,118.86320124442965" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#9d7fe4" stroke="#ffffff" d="M100,163A63,63,0,0,0,159.8055854564638,119.80636130665113L180.69007561586383,126.72286842960867A85,85,0,0,1,100,185Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#7553c9" d="M156.95770043472743,118.86320124442965A60,60,0,0,0,46.2086089202603,73.42019101448432" stroke-width="2" opacity="1" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1;"></path><path fill="#7553c9" stroke="#ffffff" d="M159.8055854564638,119.80636130665113A63,63,0,0,0,43.51903936627332,72.09120056520852L19.312913380390455,60.13028652172646A90,90,0,0,1,185.4365506520911,128.29480186664446Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#8669cc" d="M46.2086089202603,73.42019101448432A60,60,0,0,0,99.98115044438853,159.9999970391187" stroke-width="2" opacity="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 0;"></path><path fill="#8669cc" stroke="#ffffff" d="M43.51903936627332,72.09120056520852A63,63,0,0,0,99.98020796660796,162.99999689107466L99.97329646288375,184.99999580541817A85,85,0,0,1,23.795529303702097,62.345270603852775Z" stroke-width="3" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><text x="100" y="90" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: 800; font-stretch: normal; font-size: 15px; line-height: normal; font-family: Arial;" font-size="15px" font-weight="800" transform="matrix(1.5,0,0,1.5,-50,-50)" stroke-width="0.6666666666666666"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Sales</tspan></text><text x="100" y="110" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; line-height: normal; font-family: Arial;" font-size="14px" transform="matrix(1.0526,0,0,1.0526,-5.2632,-5.2895)" stroke-width="0.9500000000000001"><tspan dy="5.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">30</tspan></text></svg></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--===================================================-->
+		<!--END CONTENT CONTAINER-->
+		<!--MAIN NAVIGATION-->
+		<!--===================================================-->
+		<nav id="mainnav-container">
+			<div id="mainnav">
+
+				<!--Shortcut buttons-->
+				<!--================================-->
+				<div id="mainnav-shortcut">
+					<ul class="list-unstyled">
+						<li class="col-xs-4" data-content="Additional Sidebar" data-original-title="" title="">
+							<a id="demo-toggle-aside" class="shortcut-grid" href="#">
+								<i class="fa fa-magic"></i>
+							</a>
+						</li>
+						<li class="col-xs-4" data-content="Notification" data-original-title="" title="">
+							<a id="demo-alert" class="shortcut-grid" href="#">
+								<i class="fa fa-bullhorn"></i>
+							</a>
+						</li>
+						<li class="col-xs-4" data-content="Page Alerts" data-original-title="" title="">
+							<a id="demo-page-alert" class="shortcut-grid" href="#">
+								<i class="fa fa-bell"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--================================-->
+				<!--End shortcut buttons-->
 
 
-					<!--Menu-->
-					<!--================================-->
-					<div id="mainnav-menu-wrap">
-						<div class="nano has-scrollbar">
-							<div class="nano-content" tabindex="0" style="right: -15px;">
-								<ul id="mainnav-menu" class="list-group">
-						
-									<!--Category name-->
-									<li class="list-header">Navigate Tests</li>
-						
-									<!--Menu list item-->
-									<li class="active-link">
-										<a href="index.html" data-original-title="" title="">
-											<i class="fa fa-area-chart"></i>
+				<!--Menu-->
+				<!--================================-->
+				<div id="mainnav-menu-wrap">
+					<div class="nano has-scrollbar">
+						<div class="nano-content" tabindex="0" style="right: -15px;">
+							<ul id="mainnav-menu" class="list-group">
+
+								<!--Category name-->
+								<li class="list-header">Navigate Tests</li>
+
+								<!--Menu list item-->
+								<li class="active-link">
+									<a href="index.html" data-original-title="" title="">
+										<i class="fa fa-area-chart"></i>
 											<span class="menu-title">
 												<strong>Performance Graph</strong>
 												<i class="fa arrow"></i>
 											</span>
-										</a>
+									</a>
 
 
-										<ul class="collapse">
-											<li><a href="dashboard.html">Full page load</a></li>
-											<li><a href="browser.html">Browser specific test</a></li>
-										</ul>
-									</li>
+									<ul class="collapse">
+										<li><a href="dashboard.html">Full page load</a></li>
+										<li><a href="browser.html">Server load test</a></li>
+									</ul>
+								</li>
 
-									<!--Menu list item-->
-									<li>
-										<a href="#" data-original-title="" title="">
-											<i class="fa fa-building"></i>
+								<!--Menu list item-->
+								<li>
+									<a href="#" data-original-title="" title="">
+										<i class="fa fa-building"></i>
 											<span class="menu-title">
 												<strong>Unit Performance Test</strong>
 												<span class="pull-right badge badge-warning">Setup</span>
 											</span>
-										</a>
-									</li>
+									</a>
+								</li>
 
-												<!--Menu list item-->
-									<li>
-										<a href="#" data-original-title="" title="">
-											<i class="fa fa-flash"></i>
+								<!--Menu list item-->
+								<li>
+									<a href="#" data-original-title="" title="">
+										<i class="fa fa-flash"></i>
 											<span class="menu-title">
 												<strong>Full Stress Test</strong>
 												<span class="pull-right badge badge-warning">Setup</span>
 											</span>
-										</a>
-									</li>
-						
-									<li class="list-divider"></li>
-						
-									<!--Category name-->
-									<li class="list-header">Repositories</li>
-						
-									<!--Menu list item-->
-									<li>
-										<a href="#" data-original-title="" title="">
-											<i class="fa fa-briefcase"></i>
-											<span class="menu-title">HacknRoll_Sample_1</span>
-										</a>
-									</li>
-										<li>
-										<a href="#	" data-original-title="" title="">
-											<i class="fa fa-briefcase"></i>
-											<span class="menu-title">Boost_Sample_2</span>
-										</a>
-									</li>
-								</ul>
+									</a>
+								</li>
 
+								<li class="list-divider"></li>
 
-								<div class="mainnav-widget">
-									<div id="demo-wg-server2" class="hide-small mainnav-widget-content">
-										<ul style="margin-left:20%;">
-											<li class="pad-ver"><a id="demo-bootbox-custom-h-form" href="#" class="btn btn-success btn-bock">Add Repositories +</a></li>
-										</ul>
-									</div>
-								</div>
+								<!--Category name-->
+								<li class="list-header">Repositories</li>
 
-								<!--Widget-->
-								<!--================================-->
-								<div class="mainnav-widget">
-
-									<!-- Show the button on collapsed navigation -->
-									<div class="show-small">
-										<a href="#" data-toggle="menu-widget" data-target="#demo-wg-server" data-original-title="" title="">
-											<i class="fa fa-desktop"></i>
-										</a>
-									</div>
-
-									<!-- Hide the content on collapsed navigation -->
-
-									<div id="demo-wg-server" class="hide-small mainnav-widget-content">
-										<ul class="list-group">
-											<li class="list-header pad-no pad-ver">Server Status</li>
-											<li class="mar-btm">
-												<span class="label label-primary pull-right">15%</span>
-												<p>CPU Usage</p>
-												<div class="progress progress-sm">
-													<div class="progress-bar progress-bar-primary" style="width: 15%;">
-														<span class="sr-only">15%</span>
-													</div>
-												</div>
-											</li>
-											<li class="mar-btm">
-												<span class="label label-purple pull-right">75%</span>
-												<p>Bandwidth</p>
-												<div class="progress progress-sm">
-													<div class="progress-bar progress-bar-purple" style="width: 75%;">
-														<span class="sr-only">75%</span>
-													</div>
-												</div>
-
-												<div id="demo-wg-server2" class="hide-small mainnav-widget-content">
-													<ul style="margin-left:20%;">
-														<li class="pad-ver"><a href="server.html" class="btn btn-success btn-bock">View More Details</a></li>
-													</ul>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<!--================================-->
-								<!--End widget-->
-
-							</div>
-						<div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div></div></div>
-					</div>
-					<!--================================-->
-					<!--End menu-->
-				</div>
-			</nav>
-			<!--===================================================-->
-			<!--END MAIN NAVIGATION-->
-			
-			<!--ASIDE-->
-			<!--===================================================-->
-			<aside id="aside-container">
-				<div id="aside">
-					<div class="nano has-scrollbar">
-						<div class="nano-content" tabindex="0" style="right: -15px;">
-							
-							<!--Nav tabs-->
-							<!--================================-->
-							<ul class="nav nav-tabs nav-justified">
-								<li class="active">
-									<a href="#" data-toggle="tab">
-										<i class="fa fa-comments"></i>
-										<span class="badge badge-purple">7</span>
+								<!--Menu list item-->
+								<li>
+									<a href="#" data-original-title="" title="">
+										<i class="fa fa-briefcase"></i>
+										<span class="menu-title">HacknRoll_Sample_1</span>
 									</a>
 								</li>
 								<li>
-									<a href="#" data-toggle="tab">
-										<i class="fa fa-info-circle"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#" data-toggle="tab">
-										<i class="fa fa-wrench"></i>
+									<a href="#	" data-original-title="" title="">
+										<i class="fa fa-briefcase"></i>
+										<span class="menu-title">Boost_Sample_2</span>
 									</a>
 								</li>
 							</ul>
-							<!--================================-->
-							<!--End nav tabs-->
 
 
-
-							<!-- Tabs Content -->
-							<!--================================-->
-							<div class="tab-content">
-
-								<!--First tab (Contact list)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<div class="tab-pane fade in active" id="demo-asd-tab-1">
-									<h4 class="pad-hor text-thin">
-										<span class="pull-right badge badge-warning">3</span> Family
-									</h4>
-
-									<!--Family-->
-									<div class="list-group bg-trans">
-										<a href=" #" class="list-group-item">
-											<div class="media-left">
-												<img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
-											</div>
-											<div class="media-body">
-												<div class="text-lg">Stephen Tran</div>
-												<span class="text-muted">Availabe</span>
-											</div>
-										</a>
-										<a href=" #" class="list-group-item">
-											<div class="media-left">
-												<img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
-											</div>
-											<div class="media-body">
-												<div class="text-lg">Brittany Meyer</div>
-												<span class="text-muted">I think so</span>
-											</div>
-										</a>
-										<a href=" #" class="list-group-item">
-											<div class="media-left">
-												<img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
-											</div>
-											<div class="media-body">
-												<div class="text-lg">Donald Brown</div>
-												<span class="text-muted">Lorem ipsum dolor sit amet.</span>
-											</div>
-										</a>
-									</div>
-
-
-									<hr>
-									<h4 class="pad-hor text-thin">
-										<span class="pull-right badge badge-info">4</span> Friends
-									</h4>
-
-									<!--Friends-->
-									<div class="list-group bg-trans">
-										<a href=" #" class="list-group-item">
-											<div class="media-left">
-												<img class="img-circle img-xs" src="img/av5.png" alt="Profile Picture">
-											</div>
-											<div class="media-body">
-												<div class="text-lg">Betty Murphy</div>
-												<span class="text-muted">Bye</span>
-											</div>
-										</a>
-										<a href=" #" class="list-group-item">
-											<div class="media-left">
-												<img class="img-circle img-xs" src="img/av6.png" alt="Profile Picture">
-											</div>
-											<div class="media-body">
-												<div class="text-lg">Olivia Spencer</div>
-												<span class="text-muted">Thank you!</span>
-											</div>
-										</a>
-										<a href=" #" class="list-group-item">
-											<div class="media-left">
-												<img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
-											</div>
-											<div class="media-body">
-												<div class="text-lg">Sarah Ruiz</div>
-												<span class="text-muted">2 hours ago</span>
-											</div>
-										</a>
-										<a href=" #" class="list-group-item">
-											<div class="media-left">
-												<img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
-											</div>
-											<div class="media-body">
-												<div class="text-lg">Paul Aguilar</div>
-												<span class="text-muted">2 hours ago</span>
-											</div>
-										</a>
-									</div>
-
-
-									<hr>
-									<h4 class="pad-hor text-thin">
-										<span class="pull-right badge badge-success">Offline</span> Works
-									</h4>
-
-									<!--Works-->
-									<div class="list-group bg-trans">
-										<a href="#" class="list-group-item">
-											<span class="badge badge-purple badge-icon badge-fw pull-left"></span> Joey K. Greyson
-										</a>
-										<a href="#" class="list-group-item">
-											<span class="badge badge-info badge-icon badge-fw pull-left"></span> Andrea Branden
-										</a>
-										<a href="#" class="list-group-item">
-											<span class="badge badge-pink badge-icon badge-fw pull-left"></span> Lucy Moon
-										</a>
-										<a href="#" class="list-group-item">
-											<span class="badge badge-success badge-icon badge-fw pull-left"></span> Johny Juan
-										</a>
-										<a href="#" class="list-group-item">
-											<span class="badge badge-danger badge-icon badge-fw pull-left"></span> Susan Sun
-										</a>
-									</div>
-
+							<div class="mainnav-widget">
+								<div id="demo-wg-server2" class="hide-small mainnav-widget-content">
+									<ul style="margin-left:20%;">
+										<li class="pad-ver"><a id="demo-bootbox-custom-h-form" href="#" class="btn btn-success btn-bock">Add Repositories +</a></li>
+									</ul>
 								</div>
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<!--End first tab (Contact list)-->
+							</div>
 
+							<!--Widget-->
+							<!--================================-->
+							<div class="mainnav-widget">
 
-								<!--Second tab (Custom layout)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<div class="tab-pane fade" id="demo-asd-tab-2">
-
-									<!--Monthly billing-->
-									<div class="pad-all">
-										<h4 class="text-lg mar-no">Monthly Billing</h4>
-										<p class="text-sm">January 2015</p>
-										<button class="btn btn-block btn-success mar-top">Pay Now</button>
-									</div>
-
-
-									<hr>
-
-									<!--Information-->
-									<div class="text-center clearfix pad-top">
-										<div class="col-xs-6">
-											<span class="h4">4,327</span>
-											<p class="text-muted text-uppercase"><small>Sales</small></p>
-										</div>
-										<div class="col-xs-6">
-											<span class="h4">$ 1,252</span>
-											<p class="text-muted text-uppercase"><small>Earning</small></p>
-										</div>
-									</div>
-
-
-									<hr>
-
-									<!--Simple Menu-->
-									<div class="list-group bg-trans">
-										<a href=" #" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
-										<a href=" #" class="list-group-item">Email</a>
-										<a href=" #" class="list-group-item"><span class="label label-success pull-right">New</span>Chat</a>
-										<a href=" #" class="list-group-item">Reports</a>
-										<a href=" #" class="list-group-item">Transfer Funds</a>
-									</div>
-
-
-									<hr>
-
-									<div class="text-center">Questions?
-										<p class="text-lg text-semibold"> (415) 234-53454 </p>
-										<small><em>We are here 24/7</em></small>
-									</div>
+								<!-- Show the button on collapsed navigation -->
+								<div class="show-small">
+									<a href="#" data-toggle="menu-widget" data-target="#demo-wg-server" data-original-title="" title="">
+										<i class="fa fa-desktop"></i>
+									</a>
 								</div>
-								<!--End second tab (Custom layout)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
+								<!-- Hide the content on collapsed navigation -->
 
-								<!--Third tab (Settings)-->
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<div class="tab-pane fade" id="demo-asd-tab-3">
-									<ul class="list-group bg-trans">
-										<li class="list-header">
-											<h4 class="text-thin">Account Settings</h4>
-										</li>
-										<li class="list-group-item">
-											<div class="pull-right">
-												<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+								<div id="demo-wg-server" class="hide-small mainnav-widget-content">
+									<ul class="list-group">
+										<li class="list-header pad-no pad-ver">Server Status</li>
+										<li class="mar-btm">
+											<span class="label label-primary pull-right">15%</span>
+											<p>CPU Usage</p>
+											<div class="progress progress-sm">
+												<div class="progress-bar progress-bar-primary" style="width: 15%;">
+													<span class="sr-only">15%</span>
+												</div>
 											</div>
-											<p>Show my personal status</p>
-											<small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
 										</li>
-										<li class="list-group-item">
-											<div class="pull-right">
-												<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+										<li class="mar-btm">
+											<span class="label label-purple pull-right">75%</span>
+											<p>Bandwidth</p>
+											<div class="progress progress-sm">
+												<div class="progress-bar progress-bar-purple" style="width: 75%;">
+													<span class="sr-only">75%</span>
+												</div>
 											</div>
-											<p>Show offline contact</p>
-											<small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
-										</li>
-										<li class="list-group-item">
-											<div class="pull-right">
-												<input class="demo-switch" type="checkbox" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); transition: border 0.4s, box-shadow 0.4s; -webkit-transition: border 0.4s, box-shadow 0.4s; background-color: rgb(255, 255, 255);"><small style="left: 0px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+
+											<div id="demo-wg-server2" class="hide-small mainnav-widget-content">
+												<ul style="margin-left:20%;">
+													<li class="pad-ver"><a href="server.html" class="btn btn-success btn-bock">View More Details</a></li>
+												</ul>
 											</div>
-											<p>Invisible mode </p>
-											<small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
 										</li>
 									</ul>
-
-									<hr>
-
-									<ul class="list-group bg-trans">
-										<li class="list-header"><h4 class="text-thin">Public Settings</h4></li>
-										<li class="list-group-item">
-											<div class="pull-right">
-												<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
-											</div>
-											Online status
-										</li>
-										<li class="list-group-item">
-											<div class="pull-right">
-												<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
-											</div>
-											Show offline contact
-										</li>
-										<li class="list-group-item">
-											<div class="pull-right">
-												<input class="demo-switch" type="checkbox" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); transition: border 0.4s, box-shadow 0.4s; -webkit-transition: border 0.4s, box-shadow 0.4s; background-color: rgb(255, 255, 255);"><small style="left: 0px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
-											</div>
-											Show my device icon
-										</li>
-									</ul>
-
-									<hr>
-
-									<h4 class="pad-hor text-thin">Task Progress</h4>
-									<div class="pad-all">
-										<p>Upgrade Progress</p>
-										<div class="progress progress-sm">
-											<div class="progress-bar progress-bar-success" style="width: 15%;"><span class="sr-only">15%</span></div>
-										</div>
-										<small class="text-muted">15% Completed</small>
-									</div>
-									<div class="pad-hor">
-										<p>Database</p>
-										<div class="progress progress-sm">
-											<div class="progress-bar progress-bar-danger" style="width: 75%;"><span class="sr-only">75%</span></div>
-										</div>
-										<small class="text-muted">17/23 Database</small>
-									</div>
-
 								</div>
-								<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-								<!--Third tab (Settings)-->
+							</div>
+							<!--================================-->
+							<!--End widget-->
+
+						</div>
+						<div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div></div></div>
+				</div>
+				<!--================================-->
+				<!--End menu-->
+			</div>
+		</nav>
+		<!--===================================================-->
+		<!--END MAIN NAVIGATION-->
+
+		<!--ASIDE-->
+		<!--===================================================-->
+		<aside id="aside-container">
+			<div id="aside">
+				<div class="nano has-scrollbar">
+					<div class="nano-content" tabindex="0" style="right: -15px;">
+
+						<!--Nav tabs-->
+						<!--================================-->
+						<ul class="nav nav-tabs nav-justified">
+							<li class="active">
+								<a href="#" data-toggle="tab">
+									<i class="fa fa-comments"></i>
+									<span class="badge badge-purple">7</span>
+								</a>
+							</li>
+							<li>
+								<a href="#" data-toggle="tab">
+									<i class="fa fa-info-circle"></i>
+								</a>
+							</li>
+							<li>
+								<a href="#" data-toggle="tab">
+									<i class="fa fa-wrench"></i>
+								</a>
+							</li>
+						</ul>
+						<!--================================-->
+						<!--End nav tabs-->
+
+
+
+						<!-- Tabs Content -->
+						<!--================================-->
+						<div class="tab-content">
+
+							<!--First tab (Contact list)-->
+							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+							<div class="tab-pane fade in active" id="demo-asd-tab-1">
+								<h4 class="pad-hor text-thin">
+									<span class="pull-right badge badge-warning">3</span> Family
+								</h4>
+
+								<!--Family-->
+								<div class="list-group bg-trans">
+									<a href=" #" class="list-group-item">
+										<div class="media-left">
+											<img class="img-circle img-xs" src="img/av2.png" alt="Profile Picture">
+										</div>
+										<div class="media-body">
+											<div class="text-lg">Stephen Tran</div>
+											<span class="text-muted">Availabe</span>
+										</div>
+									</a>
+									<a href=" #" class="list-group-item">
+										<div class="media-left">
+											<img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+										</div>
+										<div class="media-body">
+											<div class="text-lg">Brittany Meyer</div>
+											<span class="text-muted">I think so</span>
+										</div>
+									</a>
+									<a href=" #" class="list-group-item">
+										<div class="media-left">
+											<img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+										</div>
+										<div class="media-body">
+											<div class="text-lg">Donald Brown</div>
+											<span class="text-muted">Lorem ipsum dolor sit amet.</span>
+										</div>
+									</a>
+								</div>
+
+
+								<hr>
+								<h4 class="pad-hor text-thin">
+									<span class="pull-right badge badge-info">4</span> Friends
+								</h4>
+
+								<!--Friends-->
+								<div class="list-group bg-trans">
+									<a href=" #" class="list-group-item">
+										<div class="media-left">
+											<img class="img-circle img-xs" src="img/av5.png" alt="Profile Picture">
+										</div>
+										<div class="media-body">
+											<div class="text-lg">Betty Murphy</div>
+											<span class="text-muted">Bye</span>
+										</div>
+									</a>
+									<a href=" #" class="list-group-item">
+										<div class="media-left">
+											<img class="img-circle img-xs" src="img/av6.png" alt="Profile Picture">
+										</div>
+										<div class="media-body">
+											<div class="text-lg">Olivia Spencer</div>
+											<span class="text-muted">Thank you!</span>
+										</div>
+									</a>
+									<a href=" #" class="list-group-item">
+										<div class="media-left">
+											<img class="img-circle img-xs" src="img/av4.png" alt="Profile Picture">
+										</div>
+										<div class="media-body">
+											<div class="text-lg">Sarah Ruiz</div>
+											<span class="text-muted">2 hours ago</span>
+										</div>
+									</a>
+									<a href=" #" class="list-group-item">
+										<div class="media-left">
+											<img class="img-circle img-xs" src="img/av3.png" alt="Profile Picture">
+										</div>
+										<div class="media-body">
+											<div class="text-lg">Paul Aguilar</div>
+											<span class="text-muted">2 hours ago</span>
+										</div>
+									</a>
+								</div>
+
+
+								<hr>
+								<h4 class="pad-hor text-thin">
+									<span class="pull-right badge badge-success">Offline</span> Works
+								</h4>
+
+								<!--Works-->
+								<div class="list-group bg-trans">
+									<a href="#" class="list-group-item">
+										<span class="badge badge-purple badge-icon badge-fw pull-left"></span> Joey K. Greyson
+									</a>
+									<a href="#" class="list-group-item">
+										<span class="badge badge-info badge-icon badge-fw pull-left"></span> Andrea Branden
+									</a>
+									<a href="#" class="list-group-item">
+										<span class="badge badge-pink badge-icon badge-fw pull-left"></span> Lucy Moon
+									</a>
+									<a href="#" class="list-group-item">
+										<span class="badge badge-success badge-icon badge-fw pull-left"></span> Johny Juan
+									</a>
+									<a href="#" class="list-group-item">
+										<span class="badge badge-danger badge-icon badge-fw pull-left"></span> Susan Sun
+									</a>
+								</div>
 
 							</div>
+							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+							<!--End first tab (Contact list)-->
+
+
+							<!--Second tab (Custom layout)-->
+							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+							<div class="tab-pane fade" id="demo-asd-tab-2">
+
+								<!--Monthly billing-->
+								<div class="pad-all">
+									<h4 class="text-lg mar-no">Monthly Billing</h4>
+									<p class="text-sm">January 2015</p>
+									<button class="btn btn-block btn-success mar-top">Pay Now</button>
+								</div>
+
+
+								<hr>
+
+								<!--Information-->
+								<div class="text-center clearfix pad-top">
+									<div class="col-xs-6">
+										<span class="h4">4,327</span>
+										<p class="text-muted text-uppercase"><small>Sales</small></p>
+									</div>
+									<div class="col-xs-6">
+										<span class="h4">$ 1,252</span>
+										<p class="text-muted text-uppercase"><small>Earning</small></p>
+									</div>
+								</div>
+
+
+								<hr>
+
+								<!--Simple Menu-->
+								<div class="list-group bg-trans">
+									<a href=" #" class="list-group-item"><span class="label label-danger pull-right">Featured</span>Edit Password</a>
+									<a href=" #" class="list-group-item">Email</a>
+									<a href=" #" class="list-group-item"><span class="label label-success pull-right">New</span>Chat</a>
+									<a href=" #" class="list-group-item">Reports</a>
+									<a href=" #" class="list-group-item">Transfer Funds</a>
+								</div>
+
+
+								<hr>
+
+								<div class="text-center">Questions?
+									<p class="text-lg text-semibold"> (415) 234-53454 </p>
+									<small><em>We are here 24/7</em></small>
+								</div>
+							</div>
+							<!--End second tab (Custom layout)-->
+							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+							<!--Third tab (Settings)-->
+							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+							<div class="tab-pane fade" id="demo-asd-tab-3">
+								<ul class="list-group bg-trans">
+									<li class="list-header">
+										<h4 class="text-thin">Account Settings</h4>
+									</li>
+									<li class="list-group-item">
+										<div class="pull-right">
+											<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+										</div>
+										<p>Show my personal status</p>
+										<small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+									</li>
+									<li class="list-group-item">
+										<div class="pull-right">
+											<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+										</div>
+										<p>Show offline contact</p>
+										<small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+									</li>
+									<li class="list-group-item">
+										<div class="pull-right">
+											<input class="demo-switch" type="checkbox" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); transition: border 0.4s, box-shadow 0.4s; -webkit-transition: border 0.4s, box-shadow 0.4s; background-color: rgb(255, 255, 255);"><small style="left: 0px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+										</div>
+										<p>Invisible mode </p>
+										<small class="text-muted">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</small>
+									</li>
+								</ul>
+
+								<hr>
+
+								<ul class="list-group bg-trans">
+									<li class="list-header"><h4 class="text-thin">Public Settings</h4></li>
+									<li class="list-group-item">
+										<div class="pull-right">
+											<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+										</div>
+										Online status
+									</li>
+									<li class="list-group-item">
+										<div class="pull-right">
+											<input class="demo-switch" type="checkbox" checked="" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="border-color: rgb(100, 189, 99); box-shadow: rgb(100, 189, 99) 0px 0px 0px 0px inset; transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; -webkit-transition: border 0.4s, box-shadow 0.4s, background-color 1.2s; background-color: rgb(100, 189, 99);"><small style="left: 17px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+										</div>
+										Show offline contact
+									</li>
+									<li class="list-group-item">
+										<div class="pull-right">
+											<input class="demo-switch" type="checkbox" data-switchery="true" style="display: none;"><span class="switchery switchery-default" style="box-shadow: rgb(223, 223, 223) 0px 0px 0px 0px inset; border-color: rgb(223, 223, 223); transition: border 0.4s, box-shadow 0.4s; -webkit-transition: border 0.4s, box-shadow 0.4s; background-color: rgb(255, 255, 255);"><small style="left: 0px; transition: left 0.2s; -webkit-transition: left 0.2s; background-color: rgb(255, 255, 255);"></small></span>
+										</div>
+										Show my device icon
+									</li>
+								</ul>
+
+								<hr>
+
+								<h4 class="pad-hor text-thin">Task Progress</h4>
+								<div class="pad-all">
+									<p>Upgrade Progress</p>
+									<div class="progress progress-sm">
+										<div class="progress-bar progress-bar-success" style="width: 15%;"><span class="sr-only">15%</span></div>
+									</div>
+									<small class="text-muted">15% Completed</small>
+								</div>
+								<div class="pad-hor">
+									<p>Database</p>
+									<div class="progress progress-sm">
+										<div class="progress-bar progress-bar-danger" style="width: 75%;"><span class="sr-only">75%</span></div>
+									</div>
+									<small class="text-muted">17/23 Database</small>
+								</div>
+
+							</div>
+							<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+							<!--Third tab (Settings)-->
+
 						</div>
+					</div>
 					<div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 20px; transform: translate(0px, 0px);"></div></div></div>
-				</div>
-			</aside>
-			<!--===================================================-->
-			<!--END ASIDE-->
-
-		</div>
-
-		
-
-		<!-- FOOTER -->
-		<!--===================================================-->
-		<footer id="footer">
-
-			<!-- Visible when footer positions are fixed -->
-			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-			<div class="show-fixed pull-right">
-				<ul class="footer-list list-inline">
-					<li>
-						<p class="text-sm">SEO Proggres</p>
-						<div class="progress progress-sm progress-light-base">
-							<div style="width: 80%" class="progress-bar progress-bar-danger"></div>
-						</div>
-					</li>
-
-					<li>
-						<p class="text-sm">Online Tutorial</p>
-						<div class="progress progress-sm progress-light-base">
-							<div style="width: 80%" class="progress-bar progress-bar-primary"></div>
-						</div>
-					</li>
-					<li>
-						<button class="btn btn-sm btn-dark btn-active-success">Checkout</button>
-					</li>
-				</ul>
 			</div>
-
-
-
-			<!-- Visible when footer positions are static -->
-			<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-			<div class="hide-fixed pull-right pad-rgt" style="color:grey">Made with <span class="fa fa-heart" style="color:red"></span><span style="color:grey"> in Singapore</span></div>
-			<p class="pad-lft">© 2015 <span class="fa fa-rocket"> Boost.IO</p>
-
-
-		</footer>
+		</aside>
 		<!--===================================================-->
-		<!-- END FOOTER -->
- 
-		<!-- SCROLL TOP BUTTON -->
-		<!--===================================================-->
-		<button id="scroll-top" class="btn in"><i class="fa fa-chevron-up"></i></button>
-		<!--===================================================-->
-
-
+		<!--END ASIDE-->
 
 	</div>
+
+
+
+	<!-- FOOTER -->
 	<!--===================================================-->
-	<!-- END OF CONTAINER -->
+	<footer id="footer">
+
+		<!-- Visible when footer positions are fixed -->
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<div class="show-fixed pull-right">
+			<ul class="footer-list list-inline">
+				<li>
+					<p class="text-sm">SEO Proggres</p>
+					<div class="progress progress-sm progress-light-base">
+						<div style="width: 80%" class="progress-bar progress-bar-danger"></div>
+					</div>
+				</li>
+
+				<li>
+					<p class="text-sm">Online Tutorial</p>
+					<div class="progress progress-sm progress-light-base">
+						<div style="width: 80%" class="progress-bar progress-bar-primary"></div>
+					</div>
+				</li>
+				<li>
+					<button class="btn btn-sm btn-dark btn-active-success">Checkout</button>
+				</li>
+			</ul>
+		</div>
 
 
-		<!--jQuery [ REQUIRED ]-->
-	<script src="js/jquery-2.1.1.min.js"></script>
-	<!--BootstrapJS [ RECOMMENDED ]-->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Plugins [ OPTIONAL ]-->
-	<script src="js/plugins.min.js"></script>
-	<!--Demo script [ DEMONSTRATION ]-->
-	<script src="js/nifty-demo.min.js"></script>
-	<!--Specify page [ SAMPLE ]-->
-	<script src="js/dashboard.js"></script>
-	<!-- Modals -->
-	<script src="js/ui-modals.js"></script>
-	<!--Charts -->
-	<script src="js/charts.js"></script>
+
+		<!-- Visible when footer positions are static -->
+		<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<div class="hide-fixed pull-right pad-rgt" style="color:grey">Made with <span class="fa fa-heart" style="color:red"></span><span style="color:grey"> in Singapore</span></div>
+		<p class="pad-lft">© 2015 <span class="fa fa-rocket"> Boost.IO</p>
+
+
+	</footer>
+	<!--===================================================-->
+	<!-- END FOOTER -->
+
+	<!-- SCROLL TOP BUTTON -->
+	<!--===================================================-->
+	<button id="scroll-top" class="btn in"><i class="fa fa-chevron-up"></i></button>
+	<!--===================================================-->
+
+
+
+</div>
+<!--===================================================-->
+<!-- END OF CONTAINER -->
+
+
+<!--jQuery [ REQUIRED ]-->
+<script src="js/jquery-2.1.1.min.js"></script>
+<!--BootstrapJS [ RECOMMENDED ]-->
+<script src="js/bootstrap.min.js"></script>
+<!-- Plugins [ OPTIONAL ]-->
+<script src="js/plugins.min.js"></script>
+<!--Demo script [ DEMONSTRATION ]-->
+<script src="js/nifty-demo.min.js"></script>
+<!--Specify page [ SAMPLE ]-->
+<script src="js/dashboard.js"></script>
+<!-- Modals -->
+<script src="js/ui-modals.js"></script>
+<!--Charts -->
+<script src="js/charts.js"></script>
+<script src="js/highcharts.js"></script>
+
+
 
 </body></html>
