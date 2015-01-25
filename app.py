@@ -8,7 +8,6 @@ import json
 
 app = Flask(__name__)
 firebase = firebase.FirebaseApplication('https://vivid-torch-3095.firebaseio.com', authentication=None)
-conn = sqlite3.connect('example.db')
 
 @app.route('/')
 def hello_world():
