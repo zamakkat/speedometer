@@ -87,7 +87,7 @@ def data(project_name):
         ''' %(project_name, project_name))
     max_time = c.fetchall()
     print max_time[0][0]
-    commit_info = os.popen('cd ~/external/%s && git log -1 --pretty=format:"%%h, %%cn, %%ce, %%cd, %%s"' %(project_name)).read()
+    commit_info = os.popen('cd ~/external/%s && git log -1 --pretty=format:"%%h,%%cn,%%ce,%%cd,%%s"' %(project_name)).read()
 
     commit = commit_info.split(',')
     chash = commit[0]
@@ -96,8 +96,8 @@ def data(project_name):
     date = commit[3]
     message = commit[4]
 
-    return json.dumps({'commit': { 'hash': chash, 'author_name': author_name, 'author_email': author_email, 'date': date, 'message': message },\
-        'stats': { 'avg': avg_time[0][0], 'min': min_time[0][0], 'max': max_time[0][0]}} )
+    return {'commit': { 'hash': chash, 'author_name': author_name, 'author_email': author_email, 'date': date, 'message': message },\
+        'stats': { 'avg': avg_time[0][0], 'min': min_time[0][0], 'max': max_time[0][0]}}
 
 
 
